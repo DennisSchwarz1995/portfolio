@@ -1,0 +1,76 @@
+@import "./../../styles.scss";
+
+.hero {
+  @include displayFlex($jc: space-between, $fd: column);
+  @include height();
+  @include width();
+  @include padding(40px 60px);
+  background: linear-gradient(
+    55.22deg,
+    $primary_background_color_black 36.26%,
+    $primary_background_color_green 93.28%
+  );
+}
+
+header {
+  @include displayFlex($jc: space-between);
+  @include width();
+  > a {
+    @include fontStyle();
+  }
+  > nav {
+    @include displayFlex();
+    @include gap(24px);
+    @include fontStyle();
+    > a {
+      @include fontStyle();
+    }
+  }
+}
+
+.logo {
+  @include displayFlex();
+  @include gap(4px);
+}
+
+.initials {
+  @include displayFlex();
+  @include fontStyle(
+    $fs: 44px,
+    $fw: $font_weight_700,
+    $c: $primary_color_green
+  );
+}
+
+.name {
+  line-height: 0.8;
+}
+
+.name span {
+  @include displayFlex($jc: flex-start);
+  @include fontStyle($font_size_20, $fw: $font_weight_700);
+}
+
+.introduction {
+  @include displayFlex($jc: center, $fd: column);
+  @include width();
+  @include gap(12px);
+  > h1 {
+    @include fontStyle($fs: $font_size_128, $fw: $font_weight_700);
+  }
+  > h3 {
+    @include fontStyle($fs: $font_size_40, $c: $secondary_color_white);
+  }
+  > div {
+    @include width();
+    @include displayFlex($fd: row);
+    @include gap(16px);
+  }
+  > div > button {
+    @include padding(12px 24px);
+    @include fontStyle($fs: $font_size_18);
+    &:hover {
+      @include cursorPointer();
+    }
+  }
+}

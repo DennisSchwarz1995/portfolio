@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+$primary_color_white: #FFFFFF;
+$primary_color_green: #3DCFB6;
+$primary_background_color_green: #08463b;
+$primary_background_color_black: #1c1c1c;
+$secondary_color_white: #d9d9d9;
+$font_size_18: 18px;
+$font_size_20: 20px;
+$font_size_40: 40px;
+$font_size_128: 128px;
+$font_weight_400: 400;
+$font_weight_600: 600;
+$font_weight_700: 700;
+$border_radius_button_100: 100px;
+
+@mixin height($h: 100dvh) {
+  height: $h;
+}
+
+@mixin width($w: 100%) {
+  width: $w;
+}
+
+@mixin position($p) {
+  position: $p;
+}
+
+@mixin backgroundImage($bi, $bp: center, $bs: cover, $br: no-repeat) {
+  background-image: url($bi);
+  background-position: $bp;
+  background-size: $bs;
+  background-repeat: $br;
+}
+
+@mixin displayFlex($df: flex, $jc: center, $ai: center, $fd: row) {
+  display: $df;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+
+@mixin padding($p: 0px 0px) {
+  padding: $p;
+}
+
+@mixin gap($g: 0px) {
+  gap: $g;
+}
+
+@mixin fontStyle(
+  $fs: $font_size_20,
+  $fw: $font_weight_400,
+  $c: $primary_color_white
+) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin cursorPointer($p: pointer) {
+  cursor: $p;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  outline: none;
+  border-radius: $border_radius_button_100;
+  border: 1px solid white;
+}
