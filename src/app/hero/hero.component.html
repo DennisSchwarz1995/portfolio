@@ -1,38 +1,54 @@
 <main class="hero">
   <header>
-      <nav>
-        <button></button>
-        <a href="">About me</a>
-        <a href="">Skills</a>
-        <a href="">Projects</a>
-      </nav>
-      <div class="logo">
-        <div class="initials">
-          <span class="letter">D</span>
-          <span class="letter">S</span>
-        </div>
-        <div class="name">
-          <span>Dennis</span>
-          <span>Schwarz</span>
-        </div>
+    <nav>
+      <div class="languageToggle">
+        <input type="checkbox" class="inputToggle" id="inputToggle">
+        <label for="inputToggle" class="labelToggle">
+          <span class="toggleText en">EN</span>
+          <span class="toggleText de">DE</span>
+          <span class="toggleSlider"></span>
+        </label>
       </div>
-    </header>
 
-    <section class="introduction">
-        <h3>Frontend Developer</h3>
-        <h1>Dennis Schwarz</h1>
-        <div>
-          <button>Check my work</button>
-          <button>Contact me</button>
-        </div>
-    </section>
+      <a href="">About me</a>
+      <a href="">Skills</a>
+      <a href="">Projects</a>
+    </nav>
+    <div class="logo">
+      <div class="initials">
+        <span class="letter">D</span>
+        <span class="letter">S</span>
+      </div>
+      <div class="name">
+        <span>Dennis</span>
+        <span>Schwarz</span>
+      </div>
+    </div>
+  </header>
 
+  <section class="title">
+    <h3>Frontend Developer</h3>
+    <h1>Dennis Schwarz</h1>
+    <div>
+      <button><span>Check my work</span></button>
+      <button><span>Contact me</span></button>
+    </div>
+  </section>
 
-    <section>
+  <section class="heroFooter">
+    <div class="leftLateral">
+      <img src="assets/img/down_arrow.png" alt="down_arrow" />
+      <div class="leftLateralLine"></div>
+    </div>
 
-    </section>
-
-
+    <div class="rightLateral">
+      <a class="mailAdress" href="mailto:schwarzdennis1995@gmail.com"
+        >schwarzdennis1995&#64;gmail.com</a
+      >
+      <img src="assets/img/github_icon.png" alt="github_icon" />
+      <img src="assets/img/linkedin_icon.png" alt="linkedin_icon" />
+      <div class="rightLateralLine"></div>
+    </div>
+  </section>
+  <app-marquee></app-marquee>
 </main>
-
-

@@ -4,7 +4,8 @@
   @include displayFlex($jc: space-between, $fd: column);
   @include height();
   @include width();
-  @include padding(40px 60px);
+  @include padding(40px 60px 0 40px);
+  @include overflowHidden();
   background: linear-gradient(
     55.22deg,
     $primary_background_color_black 36.26%,
@@ -24,26 +25,115 @@ header {
     @include fontStyle();
     > a {
       @include fontStyle();
+      @include position(relative);
+      text-decoration: none;
+      transition: 100ms ease-in-out;
+      &:hover {
+        color: $primary_color_green;
+      }
+      &::after {
+        content: "";
+        @include position(absolute);
+        @include width(8px);
+        @include height(8px);
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: transparent;
+        border-radius: $border_radius_button_100;
+        transition: 100ms ease-in-out;
+      }
+      &:hover::after {
+        background-color: $primary_color_green;
+      }
     }
   }
+}
+
+.languageToggle {
+  position: relative;
+  width: 80px;
+  height: 28px;
+}
+
+.languageToggle input {
+  display: none;
+}
+
+.labelToggle {
+  @include displayFlex($jc: space-around);
+  @include position(relative);
+  @include width(100%);
+  @include height(100%);
+  border: 1px solid $primary_color_green;
+  border-radius: $border_radius_button_100;
+  &:hover {
+    @include cursorPointer();
+  }
+}
+
+.toggleSlider {
+  @include position(absolute);
+  top: 0;
+  left: 0;
+  @include width(50%);
+  @include height(100%);
+  background-color: $primary_color_green;
+  border-radius: $border_radius_button_100;
+  transition: 200ms ease-in-out;
+}
+
+.toggleText {
+  @include fontStyle($fs: $font_size_16, $fw: $font_weight_400);
+  z-index: 2;
+}
+
+#inputToggle:checked + .labelToggle .toggleSlider {
+  transform: translateX(100%);
+}
+
+#inputToggle:checked + .labelToggle .de,
+#inputToggle:not(:checked) + .labelToggle .en {
+  color: $primary_color_white;
+}
+
+#inputToggle:checked + .labelToggle .en,
+#inputToggle:not(:checked) + .labelToggle .de {
+  color: $primary_color_green_faded;
+}
+
+#inputToggle:not(:checked) + .labelToggle:hover .de,
+#inputToggle:checked + .labelToggle:hover .en {
+  color: $primary_color_green;
+  transition: 100ms ease-out;
 }
 
 .logo {
   @include displayFlex();
   @include gap(4px);
+  &:hover .initials {
+    @include cursorPointer();
+    color: transparent;
+    -webkit-text-stroke: 1px $primary_color_green;
+  }
+  &:hover .name span {
+    @include cursorPointer();
+    color: transparent;
+    -webkit-text-stroke: 1px $primary_color_white;
+  }
 }
 
 .initials {
   @include displayFlex();
   @include fontStyle(
-    $fs: 44px,
+    $fs: 48px,
     $fw: $font_weight_700,
     $c: $primary_color_green
   );
 }
 
 .name {
-  line-height: 0.8;
+  line-height: 0.9;
 }
 
 .name span {
@@ -51,10 +141,14 @@ header {
   @include fontStyle($font_size_20, $fw: $font_weight_700);
 }
 
-.introduction {
+.title {
   @include displayFlex($jc: center, $fd: column);
   @include width();
   @include gap(12px);
+  @include position(absolute);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   > h1 {
     @include fontStyle($fs: $font_size_128, $fw: $font_weight_700);
   }
@@ -69,8 +163,67 @@ header {
   > div > button {
     @include padding(12px 24px);
     @include fontStyle($fs: $font_size_18);
+    position: relative;
+    overflow: hidden;
+    > span {
+      display: inline-block;
+      white-space: nowrap;
+      position: relative;
+      left: 0;
+    }
     &:hover {
       @include cursorPointer();
     }
+    &:hover > span {
+      animation: buttonMarquee 5s linear infinite;
+    }
   }
+}
+
+@keyframes buttonMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.heroFooter {
+  @include width();
+  @include displayFlex($jc: space-between, $ai: flex-end);
+}
+
+.leftLateral,
+.rightLateral {
+  @include displayFlex($fd: column);
+  @include gap(24px);
+  > img:hover {
+    @include cursorPointer();
+    filter: brightness(0) invert(1);
+  }
+}
+
+.leftLateralLine {
+  @include height(240px);
+  border: 1px solid $primary_color_green;
+}
+
+.rightLateralLine {
+  @include height(186px);
+  border: 1px solid $primary_color_white;
+}
+
+.mailAdress {
+  color: $primary_color_white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+app-marquee {
+  @include position(absolute);
+  @include width(110vw);
+  bottom: 4.5vh;
+  transform: rotate(-3deg);
 }

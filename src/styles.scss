@@ -1,8 +1,10 @@
-$primary_color_white: #FFFFFF;
-$primary_color_green: #3DCFB6;
+$primary_color_white: #ffffff;
+$primary_color_green: #3dcfb6;
+$primary_color_green_faded: #3DCFB680;
 $primary_background_color_green: #08463b;
 $primary_background_color_black: #1c1c1c;
 $secondary_color_white: #d9d9d9;
+$font_size_16: 16px;
 $font_size_18: 18px;
 $font_size_20: 20px;
 $font_size_40: 40px;
@@ -60,6 +62,10 @@ $border_radius_button_100: 100px;
   cursor: $p;
 }
 
+@mixin overflowHidden($oh: hidden) {
+  overflow: $oh;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -68,7 +74,9 @@ $border_radius_button_100: 100px;
 }
 
 body {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -81,3 +89,5 @@ button {
   border-radius: $border_radius_button_100;
   border: 1px solid white;
 }
+
+

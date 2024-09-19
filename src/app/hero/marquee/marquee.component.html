@@ -1,0 +1,14 @@
+<div class="marquee">
+  <div class="marqueeContent">
+    <ng-container *ngFor="let description of descriptions; let i = index">
+      <span>{{ description }}</span>
+      <span *ngIf="i < descriptions.length">•</span>
+    </ng-container>
+  </div>
+  <div class="marqueeContent">
+    <ng-container *ngFor="let description of descriptions; let i = index">
+      <span>{{ description }}</span>
+      <span *ngIf="i < descriptions.length">•</span>
+    </ng-container>
+  </div>
+</div>
