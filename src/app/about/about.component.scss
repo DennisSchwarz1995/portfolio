@@ -8,13 +8,27 @@ section {
   background: $primary_background_color_black;
 }
 
-.aboutMeImage,
+.aboutMePhoto,
 .aboutMeInfo {
   max-width: 568px;
-  width: 100%;
+  @include width();
   max-height: 568px;
   height: auto;
   border-radius: 30px;
+}
+
+.aboutMePhoto {
+  @include position(relative);
+  > .backgroundHover {
+    @include position(absolute, 0, 0, $zi: 1);
+    transition: 125ms ease-in-out;
+  }
+  > .aboutMeImage {
+    @include position(relative, $zi: 2);
+  }
+  &.active > .backgroundHover {
+    @include position($t: 42px, $l: -42px);
+  }
 }
 
 .aboutMeInfo {

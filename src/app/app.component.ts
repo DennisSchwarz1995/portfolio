@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeroComponent } from "./hero/hero.component";
 import { AboutComponent } from "./about/about.component";
+import { SkillsComponent } from "./skills/skills.component";
 import { CursorEffectComponent } from './cursor-effect/cursor-effect.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeroComponent, AboutComponent, CursorEffectComponent],
+  imports: [CommonModule, RouterOutlet, HeroComponent, AboutComponent, CursorEffectComponent, SkillsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -26,8 +26,13 @@ $border_radius_button_100: 100px;
   width: $w;
 }
 
-@mixin position($p) {
+@mixin position($p: null, $t: null, $l: null, $b: null, $r: null, $zi: null) {
   position: $p;
+  top: $t;
+  left: $l;
+  bottom: $b;
+  right: $r;
+  z-index: $zi;
 }
 
 @mixin backgroundImage($bi, $bp: center, $bs: cover, $br: no-repeat) {

@@ -152,44 +152,9 @@ header {
   > h3 {
     @include fontStyle($fs: $font_size_40, $c: $secondary_color_white);
   }
-  > .marqueeButton {
-    @include width();
+  > .marqueeButtons {
     @include displayFlex();
     @include gap(16px);
-  }
-  .marqueeButtonContent {
-    @include displayFlex();
-    @include padding(12px 24px);
-    @include fontStyle($fs: $font_size_18);
-    @include position(relative);
-    @include gap(32px);
-    @include overflowHidden();
-    max-width: 160px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    > span {
-      @include position(relative);
-      display: inline-block;
-      white-space: nowrap;
-      left: 0;
-    }
-    &:hover {
-      @include cursorPointer();
-      color: $primary_color_green;
-      border: 1px solid $primary_color_green;
-    }
-    &:hover > span {
-      animation: buttonMarquee 2s linear infinite;
-    }
-  }
-}
-
-@keyframes buttonMarquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% - 32px));
   }
 }
 

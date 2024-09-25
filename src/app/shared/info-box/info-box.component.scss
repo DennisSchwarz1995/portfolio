@@ -1,7 +1,17 @@
 @import "./../../../styles.scss";
 
+// .infoBox {
+//   max-width: 568px;
+//   @include width();
+//   max-height: 568px;
+//   height: auto;
+//   border-radius: 30px;
+//   border: 1px solid $primary_color_green;
+  
+// }
+
 .infoBoxTitle {
-    @include fontStyle($fs: $font_size_64, $fw: $font_weight_700);
-    color: $primary_color_green;
-    letter-spacing: -0.03em;
+  @include fontStyle($fs: $font_size_64, $fw: $font_weight_700);
+  color: $primary_color_green;
+  letter-spacing: -0.03em;
 }

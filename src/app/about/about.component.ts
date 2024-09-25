@@ -9,5 +9,10 @@ import { InfoBoxComponent } from "../shared/info-box/info-box.component";
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
+isActive = false;
+
+triggerImageHover() {
+  this.isActive = true;
+}
 
 }
