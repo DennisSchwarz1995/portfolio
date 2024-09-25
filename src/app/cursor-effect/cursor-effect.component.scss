@@ -1,0 +1,16 @@
+@import "./../../styles.scss";
+
+.cursor {
+    @include position(fixed);
+    @include overflowHidden();
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 125ms ease-out;
+    box-shadow: 0 0 80px 40px $primary_color_green;
+    z-index: 2;
+  }
+
+  .cursor.visible {
+    transition: opacity 500ms ease-in;
+  }
+

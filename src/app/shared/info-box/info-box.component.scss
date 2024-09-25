@@ -1,0 +1,7 @@
+@import "./../../../styles.scss";
+
+.infoBoxTitle {
+    @include fontStyle($fs: $font_size_64, $fw: $font_weight_700);
+    color: $primary_color_green;
+    letter-spacing: -0.03em;
+}

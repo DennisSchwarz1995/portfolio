@@ -2,7 +2,7 @@
   <header>
     <nav>
       <div class="languageToggle">
-        <input type="checkbox" class="inputToggle" id="inputToggle">
+        <input type="checkbox" class="inputToggle" id="inputToggle" />
         <label for="inputToggle" class="labelToggle">
           <span class="toggleText en">EN</span>
           <span class="toggleText de">DE</span>
@@ -29,15 +29,29 @@
   <section class="title">
     <h3>Frontend Developer</h3>
     <h1>Dennis Schwarz</h1>
-    <div>
-      <button><span>Check my work</span></button>
-      <button><span>Contact me</span></button>
+    <div class="marqueeButton">
+      <button class="marqueeButtonContent">
+        <span>Check my work</span>
+        <span>Check my work</span>
+        <span>Check my work</span>
+      </button>
+      <button class="marqueeButtonContent">
+        <span>Contact me</span>
+        <span>Contact me</span>
+        <span>Contact me</span>
+      </button>
     </div>
   </section>
 
   <section class="heroFooter">
     <div class="leftLateral">
-      <img src="assets/img/down_arrow.png" alt="down_arrow" />
+      <div class="downArrowBorder">
+        <img
+          class="downArrow"
+          src="assets/img/down_arrow.png"
+          alt="down_arrow"
+        />
+      </div>
       <div class="leftLateralLine"></div>
     </div>
 
@@ -45,8 +59,12 @@
       <a class="mailAdress" href="mailto:schwarzdennis1995@gmail.com"
         >schwarzdennis1995&#64;gmail.com</a
       >
-      <img src="assets/img/github_icon.png" alt="github_icon" />
-      <img src="assets/img/linkedin_icon.png" alt="linkedin_icon" />
+      <a class="gitHubLink" href="">
+        <img src="assets/img/github_icon.png" alt="github_icon" />
+      </a>
+      <a class="linkedInLink" href="">
+        <img src="assets/img/linkedin_icon.png" alt="linkedin_icon" />
+      </a>
       <div class="rightLateralLine"></div>
     </div>
   </section>

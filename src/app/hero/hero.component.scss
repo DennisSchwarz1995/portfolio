@@ -16,9 +16,6 @@
 header {
   @include displayFlex($jc: space-between);
   @include width();
-  > a {
-    @include fontStyle();
-  }
   > nav {
     @include displayFlex();
     @include gap(24px);
@@ -155,37 +152,44 @@ header {
   > h3 {
     @include fontStyle($fs: $font_size_40, $c: $secondary_color_white);
   }
-  > div {
+  > .marqueeButton {
     @include width();
-    @include displayFlex($fd: row);
+    @include displayFlex();
     @include gap(16px);
   }
-  > div > button {
+  .marqueeButtonContent {
+    @include displayFlex();
     @include padding(12px 24px);
     @include fontStyle($fs: $font_size_18);
-    position: relative;
-    overflow: hidden;
+    @include position(relative);
+    @include gap(32px);
+    @include overflowHidden();
+    max-width: 160px;
+    white-space: nowrap;
+    flex-shrink: 0;
     > span {
+      @include position(relative);
       display: inline-block;
       white-space: nowrap;
-      position: relative;
       left: 0;
     }
     &:hover {
       @include cursorPointer();
+      color: $primary_color_green;
+      border: 1px solid $primary_color_green;
     }
     &:hover > span {
-      animation: buttonMarquee 5s linear infinite;
+      animation: buttonMarquee 2s linear infinite;
     }
   }
 }
 
 @keyframes buttonMarquee {
-  0% {
-    transform: translateX(0%);
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateX(-100%);
+  to {
+    transform: translateX(calc(-100% - 32px));
   }
 }
 
@@ -198,15 +202,58 @@ header {
 .rightLateral {
   @include displayFlex($fd: column);
   @include gap(24px);
-  > img:hover {
+}
+
+.gitHubLink,
+.linkedInLink {
+  @include height(32px);
+  @include width(32px);
+  @include position(relative);
+  &:hover > img {
     @include cursorPointer();
     filter: brightness(0) invert(1);
+  }
+  &::after {
+    content: "";
+    @include position(absolute);
+    @include width(8px);
+    @include height(8px);
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border-radius: $border_radius_button_100;
+    transition: 100ms ease-in-out;
+  }
+
+  &:hover::after {
+    background-color: $primary_color_green;
   }
 }
 
 .leftLateralLine {
   @include height(240px);
   border: 1px solid $primary_color_green;
+}
+
+.downArrow {
+  @include height(16px);
+  animation: bounce 1.5s ease-in infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  80% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .rightLateralLine {
@@ -219,6 +266,9 @@ header {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
+  &:hover {
+    color: $primary_color_green;
+  }
 }
 
 app-marquee {
@@ -226,4 +276,12 @@ app-marquee {
   @include width(110vw);
   bottom: 4.5vh;
   transform: rotate(-3deg);
+}
+
+.downArrowBorder {
+  @include displayFlex();
+  @include height(48px);
+  @include width(32px);
+  border: 1px solid $primary_color_green;
+  border-radius: 32px;
 }
