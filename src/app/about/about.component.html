@@ -1,5 +1,5 @@
 <section>
-  <app-info-box class="aboutMePhoto" [class.active]="isActive">
+  <div class="aboutMePhoto" [class.active]="isActive">
     <img
       src="assets/img/placeholder.png"
       alt="aboutMeImage"
@@ -11,11 +11,12 @@
       alt="backgroundHover"
       class="backgroundHover"
     />
-  </app-info-box>
+  </div>
 
   <div class="aboutMeInfoWrapper">
     <span>Who I Am</span>
     <app-info-box title="About me" class="aboutMeInfo">
+
       <p>
         Hi, I'm a german speaking Frontend Developer based in Neunkirchen Saar.
         Motivated by the limitless opportunities within IT, I am excited about

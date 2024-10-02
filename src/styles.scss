@@ -5,6 +5,8 @@ $primary_background_color_green: #08463b;
 $primary_background_color_black: #1c1c1c;
 $secondary_color_white: #d9d9d9;
 $secondary_color_green: #3DCFB61A;
+$primary_font_karla: "Karla", sans-serif;
+$primary_font_fira: "Fira Code", sans-serif;
 $font_size_16: 16px;
 $font_size_18: 18px;
 $font_size_20: 20px;
@@ -12,6 +14,7 @@ $font_size_24: 24px;
 $font_size_40: 40px;
 $font_size_64: 64px;
 $font_size_128: 128px;
+$font_weight_300: 300;
 $font_weight_400: 400;
 $font_weight_500: 500;
 $font_weight_600: 600;
@@ -60,11 +63,13 @@ $border_radius_button_100: 100px;
 @mixin fontStyle(
   $fs: $font_size_20,
   $fw: $font_weight_400,
-  $c: $primary_color_white
+  $c: $primary_color_white,
+  $ff: null
 ) {
   font-size: $fs;
   font-weight: $fw;
   color: $c;
+  font-family: $ff;
 }
 
 @mixin cursorPointer($p: pointer) {
@@ -83,7 +88,7 @@ $border_radius_button_100: 100px;
 }
 
 body {
-  font-family: "Fira Sans", sans-serif;
+  font-family: $primary_font_fira;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -98,5 +103,6 @@ button {
   border-radius: $border_radius_button_100;
   border: 1px solid white;
 }
+
 
 

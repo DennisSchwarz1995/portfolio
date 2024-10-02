@@ -1,17 +1,46 @@
 @import "./../../../styles.scss";
 
-// .infoBox {
-//   max-width: 568px;
-//   @include width();
-//   max-height: 568px;
-//   height: auto;
-//   border-radius: 30px;
-//   border: 1px solid $primary_color_green;
-  
-// }
+.infoBox {
+  max-width: 568px;
+  @include width();
+  max-height: 568px;
+  height: auto;
+  border-radius: 30px;
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(25px);
+  @include padding(32px);
+  background: $secondary_color_green;
+  border: 1px solid $primary_color_green;
+  @include fontStyle(
+    $fs: $font_size_18,
+    $fw: $font_weight_400,
+    $ff: $primary_font_karla
+  );
+  text-align: justify;
+
+  ::ng-deep table {
+    @include displayFlex($fd: column);
+    @include gap(16px);
+    color: $secondary_color_white;
+    > tr {
+      @include displayFlex($ai: flex-start);
+      @include gap(24px);
+    }
+  }
+
+  ::ng-deep td img {
+    @include width(24px);
+    @include height(24px);
+  }
+}
 
 .infoBoxTitle {
-  @include fontStyle($fs: $font_size_64, $fw: $font_weight_700);
-  color: $primary_color_green;
+  @include fontStyle(
+    $font_size_64,
+    $font_weight_700,
+    $primary_color_green,
+    $primary_font_fira
+  );
   letter-spacing: -0.03em;
 }
+

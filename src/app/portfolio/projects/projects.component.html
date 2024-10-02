@@ -1,0 +1,9 @@
+<section class="project" [class.firstProject]="isFirstElement" [attr.data-title]="project?.title">
+  <span>{{ project?.title }}</span>
+  <div class="technologiesList">
+    <span *ngFor="let tech of project?.technologies; let last = last">
+      {{ tech }}
+      <span *ngIf="!last" class="separator">|</span>
+    </span>
+  </div>
+</section>

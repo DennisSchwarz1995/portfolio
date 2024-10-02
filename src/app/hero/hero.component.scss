@@ -107,7 +107,8 @@ header {
 
 .logo {
   @include displayFlex();
-  @include gap(4px);
+  @include gap(8px);
+  font-family: $primary_font_karla;
   &:hover .initials {
     @include cursorPointer();
     color: transparent;
@@ -127,6 +128,7 @@ header {
     $fw: $font_weight_700,
     $c: $primary_color_green
   );
+  letter-spacing: -0.12em;
 }
 
 .name {
@@ -147,7 +149,7 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   > h1 {
-    @include fontStyle($fs: $font_size_128, $fw: $font_weight_700);
+    @include fontStyle($fs: $font_size_128, $fw: $font_weight_700, $ff: $primary_font_karla);
   }
   > h3 {
     @include fontStyle($fs: $font_size_40, $c: $secondary_color_white);
@@ -227,7 +229,7 @@ header {
 }
 
 .mailAdress {
-  color: $primary_color_white;
+  @include fontStyle($font_size_18, $font_weight_400, $primary_color_white, $primary_font_karla);
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);

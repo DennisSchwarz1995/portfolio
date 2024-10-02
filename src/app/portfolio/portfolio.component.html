@@ -1,0 +1,34 @@
+<section class="portfolio">
+  <header class="portfolioHeader">
+    <span>Portfolio</span>
+    <h2>Featured Projects</h2>
+    <p>
+      Explore a selection of my work here - Interact with project to see my
+      skills in action.
+    </p>
+  </header>
+
+  <div class="portfolioContent">
+    <div class="projectList">
+      <ng-container *ngFor="let project of projects; let i = index">
+        <div class="projectWrapper">
+          <app-projects [project]="project" [isFirstElement]="i === 0"
+          (mouseenter)="showProjectPreview(i)" 
+          (mouseleave)="hideProjectPreview()">
+          >
+          </app-projects>
+  
+          <div class="projectPreview" [class.visible]="activePreviewIndex === i" >
+            <img [src]="project.preview" [alt]="project.title" />
+            <img
+            src="assets/img/background_hover.png"
+            alt="backgroundHover"
+            class="backgroundHover"
+          />
+          </div>
+        </div>
+        
+      </ng-container>
+    </div>
+  </div>
+</section>

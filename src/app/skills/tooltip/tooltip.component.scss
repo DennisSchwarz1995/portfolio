@@ -1,0 +1,48 @@
+@import "./../../../styles.scss";
+
+.tooltip {
+  @include displayFlex($fd: column);
+  @include position(absolute, $b: 50%, $zi: 2);
+  transform: translate(-50%, -50%);
+  @include fontStyle(
+    $font_size_16,
+    $font_weight_400,
+    $primary_color_green,
+    $primary_font_karla
+  );
+  @include padding(12px 16px);
+  @include gap(16px);
+  width: 220px;
+  background: $primary_color_white;
+  border-radius: 16px;
+  transition: 300ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  text-align: center;
+  white-space: normal;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    border-top: 15px solid $primary_color_white;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    top: 99%;
+  }
+}
+
+.unlearnedSkills {
+  @include displayFlex($fd: column);
+}
+
+.unlearnedSkillsWrapper {
+  @include displayFlex($jc: space-evenly, $fd: row);
+  @include width();
+  @include gap(16px);
+  flex-wrap: wrap;
+}

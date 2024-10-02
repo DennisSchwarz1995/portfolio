@@ -6,11 +6,11 @@
   @include padding(12px 32px);
   @include width(100%);
   @include overflowHidden();
+  @include position(relative);
   backdrop-filter: blur(5px);
   white-space: nowrap;
   user-select: none;
   background: #FFFFFF1F;
-  position: relative;
 }
 
 .marqueeContent {
@@ -20,7 +20,7 @@
   min-width: 100%;
   flex-shrink: 0;
   > span {
-    @include fontStyle(32px, $c: $primary_color_green);
+    @include fontStyle(32px, $font_weight_400, $primary_color_green, $primary_font_karla);
   }
 }
 

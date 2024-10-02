@@ -1,0 +1,13 @@
+<div
+  class="tooltip"
+  *ngIf="unlearnedSkills.length > 0"
+  [class.visible]="isVisible"
+>
+  <p>{{ tooltipText }}</p>
+  <div class="unlearnedSkillsWrapper">
+    <div class="unlearnedSkills" *ngFor="let skill of unlearnedSkills">
+      <img [src]="skill.icon" [alt]="skill.name" />
+      <span class="skillTitle">{{ skill.name }}</span>
+    </div>
+  </div>
+</div>

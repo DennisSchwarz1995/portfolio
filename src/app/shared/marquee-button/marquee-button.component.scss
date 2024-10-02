@@ -3,18 +3,21 @@
 .marqueeButtonContent {
   @include displayFlex();
   @include padding(12px 24px);
-  @include fontStyle($fs: $font_size_18);
+  @include fontStyle($font_size_18, $font_weight_400, $ff: $primary_font_karla);
   @include position(relative);
-  @include gap(32px);
   @include overflowHidden();
-  max-width: 160px;
+  @include width();
   white-space: nowrap;
-  flex-shrink: 0;
   > span {
-    @include position(relative);
+    @include position(relative, $l: 0);
     display: inline-block;
     white-space: nowrap;
-    left: 0;
+  }
+  > span:nth-child(1) {
+    @include position(absolute, $l: -100%);
+  }
+  > span:nth-child(3) {
+    @include position(absolute, $l: 100%);
   }
   &:hover {
     @include cursorPointer();
@@ -31,6 +34,6 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-100% - 32px));
+    transform: translateX(calc(-100% - 24px));
   }
 }

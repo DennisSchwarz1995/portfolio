@@ -1,0 +1,47 @@
+@import "./../../../styles.scss";
+
+:host {
+  flex-grow: 1;
+  max-width: 60%;
+}
+
+.project {
+  @include displayFlex($jc: space-between);
+  @include padding(40px 32px);
+  border-bottom: 1px solid $primary_color_green;
+  transition: 225ms ease-in-out;
+  > span {
+    @include fontStyle($font_size_24, $font_weight_700, $primary_color_white);
+  }
+  &:hover {
+    @include cursorPointer();
+    background: $primary_background_color_green;
+  }
+}
+
+.project.firstProject {
+  border-top: 1px solid $primary_color_green;
+}
+
+.technologiesList {
+  @include displayFlex($ai: center);
+  @include gap(4px);
+  flex-wrap: wrap;
+  > span {
+    @include fontStyle(
+      $font_size_18,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+  }
+
+  .separator {
+    @include fontStyle(
+      $font_size_18,
+      $font_weight_400,
+      $primary_color_green,
+      $primary_font_fira
+    );
+  }
+}

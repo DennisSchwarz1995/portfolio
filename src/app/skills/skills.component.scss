@@ -1,2 +1,82 @@
 @import "./../../styles.scss";
 
+.skills {
+  @include displayFlex($fd: row, $jc: space-between);
+  @include padding(40px 60px);
+  background: radial-gradient(22.43% 43.85% at 1.22% 52.45%, #11332d 30%, #1C1C1C 100%);
+}
+
+
+
+.skillsWrapper {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(10px);
+  > span {
+    @include fontStyle($font_size_24, $font_weight_500, $primary_color_green);
+  }
+}
+
+.skillIcon {
+  @include displayFlex($fd: column, $jc: flex-start);
+  @include gap(8px);
+  @include position(relative);
+  max-width: 120px;
+  text-align: center;
+  > img, span {
+    transition: 225ms ease-in-out;
+  }
+  > img:hover {
+    transform: scale(1.05);
+  }
+}
+
+.skillIcons {
+  display: grid;
+  justify-content: center;
+  align-self: flex-end;
+  grid-template-columns: repeat(4, 1fr);
+  @include gap(72px);
+}
+
+.skillName {
+  @include fontStyle($font_size_16, $font_weight_300);
+  letter-spacing: -0.03em;
+}
+
+.highlightedSpan {
+  @include fontStyle(
+    $font_size_24,
+    $font_weight_700,
+    $primary_color_white,
+    $primary_font_karla
+  );
+}
+
+.coloredSpan {
+  @include fontStyle(
+    $font_size_24,
+    $font_weight_700,
+    $primary_color_green,
+    $primary_font_fira
+  );
+}
+
+.spanWrapper {
+  @include displayFlex($jc: space-between);
+  width: 100%;
+}
+
+.anotherSkill {
+  @include displayFlex($fd: column, $ai: flex-start);
+  @include gap(16px);
+  max-width: 65%;
+  text-align: justify;
+  > p {
+    @include fontStyle($font_size_16);
+    width: 100%;
+  }
+}
+
+.hovered {
+  color: $primary_color_green;
+}
