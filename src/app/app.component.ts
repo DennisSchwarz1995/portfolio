@@ -6,12 +6,13 @@ import { AboutComponent } from "./about/about.component";
 import { SkillsComponent } from "./skills/skills.component";
 import { CursorEffectComponent } from './cursor-effect/cursor-effect.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ReferenceComponent } from "./reference/reference.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeroComponent, AboutComponent, CursorEffectComponent, SkillsComponent, PortfolioComponent],
+  imports: [CommonModule, RouterOutlet, HeroComponent, AboutComponent, CursorEffectComponent, SkillsComponent, PortfolioComponent, ReferenceComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

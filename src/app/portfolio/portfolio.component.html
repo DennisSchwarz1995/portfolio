@@ -12,23 +12,39 @@
     <div class="projectList">
       <ng-container *ngFor="let project of projects; let i = index">
         <div class="projectWrapper">
-          <app-projects [project]="project" [isFirstElement]="i === 0"
-          (mouseenter)="showProjectPreview(i)" 
-          (mouseleave)="hideProjectPreview()">
+          <app-projects
+            [project]="project"
+            [isFirstElement]="i === 0"
+            (mouseenter)="showProjectPreview(i)"
+            (mouseleave)="hideProjectPreview()"
+            (click)="openProjectCard(project)">
           >
+            >
           </app-projects>
-  
-          <div class="projectPreview" [class.visible]="activePreviewIndex === i" >
+
+          <div
+            class="projectPreview"
+            [class.visible]="activePreviewIndex === i"
+          >
             <img [src]="project.preview" [alt]="project.title" />
             <img
-            src="assets/img/background_hover.png"
-            alt="backgroundHover"
-            class="backgroundHover"
-          />
+              src="assets/img/background_hover.png"
+              alt="backgroundHover"
+              class="backgroundHover"
+            />
           </div>
         </div>
-        
       </ng-container>
     </div>
   </div>
 </section>
+
+<app-project-card 
+*ngIf="isProjectCardVisible"
+[project]="selectedProject"
+[projects]="projects"
+[isVisible]="isProjectCardVisible"
+(closeCard)="closeProjectCard()"
+(nextProjectEvent)="showNextProject()" 
+>
+</app-project-card>

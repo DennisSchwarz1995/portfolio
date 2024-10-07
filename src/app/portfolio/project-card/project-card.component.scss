@@ -1,0 +1,176 @@
+@import "./../../../styles.scss";
+
+.projectCardContainer {
+  @include position(fixed, 0, 0, $zi: 2);
+  @include height(100dvh);
+  @include width(100dvw);
+  @include displayFlex();
+}
+
+.overlay {
+  @include position(fixed, 0, 0, $zi: 1);
+  @include height(100dvh);
+  @include width(100dvw);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.projectCard {
+  @include displayFlex($jc: space-between, $ai: flex-start);
+  @include padding(60px);
+  @include height(650px);
+  @include width(80%);
+  @include position(fixed, 50%, 50%, $zi: 2);
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    55.22deg,
+    $primary_background_color_black 36.26%,
+    $primary_background_color_green 93.28%
+  );
+  border: 1px solid $primary_color_green;
+  border-radius: 30px;
+  > section {
+    flex: 1 1 50%;
+    max-width: 50%;
+  }
+}
+
+.projectCardInfo {
+  @include displayFlex($jc: space-between, $ai: flex-start, $fd: column);
+  @include height(100%);
+  @include gap(40px);
+}
+
+.cardHeader {
+  @include displayFlex($ai: flex-start, $fd: column);
+  > h1 {
+    @include fontStyle(
+      $font_size_128,
+      $font_weight_700,
+      $primary_color_green,
+      $primary_font_karla
+    );
+  }
+  > h2 {
+    @include fontStyle($font_size_64, $font_weight_700, $primary_color_white);
+    letter-spacing: -0.03em;
+  }
+}
+
+.projectCardDescription {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(20px);
+  > h4 {
+    @include fontStyle($font_size_24, $font_weight_700, $primary_color_green);
+  }
+  > p {
+    @include fontStyle(
+      $font_size_18,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+  }
+}
+
+.technologies {
+  @include displayFlex($jc: flex-start);
+  @include gap(16px);
+}
+
+.technologyInfo {
+  @include displayFlex();
+  @include gap(4px);
+  > img {
+    @include width(24px);
+    @include height(24px);
+    filter: brightness(0) saturate(100%) invert(75%) sepia(12%) saturate(2393%)
+      hue-rotate(117deg) brightness(99%) contrast(73%);
+  }
+  > span {
+    @include fontStyle(
+      $font_size_16,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+  }
+}
+
+.projectLinks {
+  @include displayFlex();
+  @include gap(32px);
+  > button {
+    @include displayFlex();
+    @include gap(8px);
+    @include height(48px);
+    @include padding(0px 24px);
+    border: 1px solid $primary_color_white;
+    border-radius: $border_radius_button_100;
+    transition: all 225ms ease-in-out;
+    &:hover {
+      @include cursorPointer();
+      border: 1px solid $primary_color_green;
+      transition: 225ms ease-in-out;
+      > a {
+        color: $primary_color_green;
+        transition: 225ms ease-in-out;
+      }
+      > img {
+        transform: translate(4px, -4px);
+        transition: 225ms ease-in-out;
+      }
+    }
+    > a {
+      @include fontStyle(
+        $font_size_18,
+        $font_weight_400,
+        $primary_color_white,
+        $primary_font_karla
+      );
+    }
+  }
+}
+
+.projectCardPreview {
+  @include displayFlex($jc: space-between, $ai: flex-end, $fd: column);
+  @include height(100%);
+  > img {
+    @include height(60%);
+    @include width(90%);
+  }
+}
+
+.closeButton {
+  @include height(48px);
+  @include width(48px);
+  > img:hover {
+    @include cursorPointer();
+    transform: scale(1.2);
+    transition: 125ms ease-in-out;
+    filter: brightness(0) saturate(100%) invert(75%) sepia(12%) saturate(2393%)
+      hue-rotate(117deg) brightness(99%) contrast(73%);
+  }
+}
+
+.nextProject {
+  @include displayFlex();
+  @include gap(8px);
+  > span {
+    @include fontStyle(
+      $font_size_18,
+      $font_weight_400,
+      $primary_color_green,
+      $primary_font_karla
+    );
+  }
+  &:hover {
+    @include cursorPointer();
+    > span {
+      color: $primary_color_white;
+    }
+    > img {
+      transform: translate(4px);
+      transition: 125ms ease-in-out;
+    }
+  }
+}

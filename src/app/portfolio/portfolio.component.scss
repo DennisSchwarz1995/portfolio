@@ -7,6 +7,7 @@
   background: $primary_background_color_black;
 }
 
+
 .portfolioHeader {
   @include displayFlex($ai: flex-start, $fd: column);
   @include gap(20px);
@@ -43,23 +44,19 @@
 
 .projectPreview {
   @include displayFlex();
-  @include width(260px);
-  @include height(auto);
-  @include position(relative);
+  @include position(absolute, $l: 70%);
   opacity: 0;
   > img {
-    @include position(absolute);
     transition: 225ms ease-in;
     z-index: 2;
   }
   > .backgroundHover {
-    @include position(absolute, $l: 15%, $t: 115%);
+    @include position(absolute, $l: 8%, $t: 8%);
     @include width();
-    @include height(192px);
+    @include height(100%);
     z-index: 1;
   }
 }
-
 
 .visible {
   opacity: 1;
