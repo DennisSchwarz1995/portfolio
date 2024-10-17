@@ -1,27 +1,23 @@
-<section class="skills">
+<section id="skills" class="skills">
   <div class="skillsWrapper">
-    <span>Technologies</span>
-    <app-info-box title="Skill Set">
+    <span>{{ 'TECHNOLOGIES' | translate }}</span>
+    <app-info-box title="SKILL_SET">
       <p>
-        My journey has involved working on diverse projects, employing a range
-        of frontend technologies and concepts. I am open to embracing new
-        technologies and methodologies to Continously enhance my skills and stay
-        ahead in the ever-evolving landscape of web development.
+        {{ 'JOURNEY' | translate }}
       </p>
 
       <div class="anotherSkill">
         <div class="spanWrapper">
-          <span class="highlightedSpan">You need</span>
-          <span class="coloredSpan">another skill?</span>
+          <span class="highlightedSpan">{{ 'YOU_NEED' | translate }}</span>
+          <span class="coloredSpan">{{ 'ANOTHER_SKILL' | translate }}</span>
         </div>
 
         <p>
-          Feel free to contact me, I look forward to expanding on my previous
-          knowledge.
+          {{ 'SKILL_SET_CONTACT_ME' | translate }}
         </p>
       </div>
 
-      <app-marquee-button marqueeText="Let's Talk"></app-marquee-button>
+      <app-marquee-button marqueeText="{{ 'LETS_TALK' | translate }}"></app-marquee-button>
     </app-info-box>
   </div>
 
@@ -38,8 +34,8 @@
       [class.hovered]="isTooltipVisible && skill.name === 'Growth Mindset'" 
       class="skillName">{{ formatIconName(skill.name) }}</span>
       <ng-container *ngIf="skill.name === 'Growth Mindset'">
-        <app-tooltip
-          [tooltipText]="'I have a special interest in learning'"
+        <app-tooltip 
+          [tooltipText]="'SKILL_SET_TOOLTIP'"
           [unlearnedSkills]="unlearnedSkills"
           [isVisible]="isTooltipVisible"
         >

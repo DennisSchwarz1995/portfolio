@@ -1,3 +1,6 @@
-<button class="marqueeButtonContent">
+<button class="marqueeButtonContent"
+[class.disabled]="disabled"
+[disabled]="disabled"
+>
   <span *ngFor="let i of [1, 2, 3]">{{ marqueeText }}</span>
 </button>

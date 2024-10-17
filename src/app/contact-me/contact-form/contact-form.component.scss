@@ -1,0 +1,156 @@
+@import "./../../../styles.scss";
+
+:host {
+  @include width();
+}
+
+form {
+  @include displayFlex($ai: center, $fd: column);
+  @include gap(20px);
+  > .inputs {
+    @include displayFlex($ai: center, $fd: column);
+    @include width();
+  }
+}
+
+.inputWrapper {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include width();
+  @include padding(32px);
+  @include gap(16px);
+  &:not(:nth-child(2)) {
+    border-top: 1px solid $primary_color_green;
+    border-bottom: 1px solid $primary_color_green;
+  }
+
+  > label {
+    @include fontStyle($font_size_24, $font_weight_500, $primary_color_green);
+  }
+
+  > input[type="text"],
+  input[type="email"],
+  textarea {
+    @include width();
+    @include fontStyle(
+      $font_size_18,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+    background: $primary_background_color_black;
+    outline: none;
+    border: none;
+    resize: none;
+    &::placeholder {
+      transition: 125ms ease-in-out;
+      @include fontStyle(
+        $font_size_18,
+        $font_weight_400,
+        $primary_color_white,
+        $primary_font_karla
+      );
+    }
+  }
+}
+
+input[type="text"].ng-invalid.ng-touched::placeholder,
+input[type="email"].ng-invalid.ng-touched::placeholder,
+textarea.ng-invalid.ng-touched::placeholder {
+  color: $error_color_red;
+}
+
+.checkboxSubmit {
+  @include displayFlex($fd: column);
+  @include gap(40px);
+  @include width();
+  > .checkboxWrapper {
+    @include displayFlex();
+    align-self: flex-start;
+    @include gap(8px);
+  }
+
+  .checkboxInfo {
+    @include position(relative);
+    > p {
+      @include fontStyle(
+        $font_size_16,
+        $font_weight_400,
+        $primary_color_white,
+        $primary_font_karla
+      );
+      > a {
+        color: $primary_color_green_faded;
+        &:hover {
+          color: $primary_color_green;
+          transition: 225ms ease-in-out;
+        }
+      }
+    }
+    > span {
+      @include position(absolute);
+      @include fontStyle(
+        $font_size_16,
+        $font_weight_400,
+        $error_color_red,
+        $primary_font_karla
+      );
+    }
+  }
+}
+
+.checkboxContainer {
+  @include position(relative);
+  @include height(16px);
+  @include width(16px);
+  > input {
+    @include position(absolute);
+    @include height(100%);
+    @include width(100%);
+    opacity: 0;
+    &:checked ~ span {
+      border: 2px solid $primary_color_green;
+    }
+    &:checked ~ span:hover {
+      border: 2px solid $primary_color_green_faded;
+      @include cursorPointer();
+    }
+    &:not(:checked) ~ span:hover {
+      border: 2px solid $primary_color_green;
+      @include cursorPointer();
+    }
+    &:checked ~ span::after {
+      @include height(8px);
+      @include width(3px);
+      opacity: 1;
+    }
+  }
+  > span {
+    display: block;
+    @include position(absolute);
+    @include height(100%);
+    @include width(100%);
+    border: 2px solid $primary_color_green_faded;
+    border-radius: 2px;
+    transition: 225ms ease-in-out;
+    &::after {
+      content: "";
+      @include position(absolute, 0, 4px);
+      @include height(0px);
+      @include width(0px);
+      border: solid $primary_color_green;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+  }
+}
+
+.submitButton {
+  @include padding(12px 24px);
+  @include fontStyle(
+    $font_size_18,
+    $font_weight_400,
+    $primary_color_white,
+    $primary_font_karla
+  );
+}

@@ -3,11 +3,12 @@ import { InfoBoxComponent } from '../shared/info-box/info-box.component';
 import { MarqueeButtonComponent } from '../shared/marquee-button/marquee-button.component';
 import { CommonModule } from '@angular/common';
 import { TooltipComponent } from "./tooltip/tooltip.component";
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [InfoBoxComponent, MarqueeButtonComponent, CommonModule, TooltipComponent],
+  imports: [InfoBoxComponent, MarqueeButtonComponent, CommonModule, TooltipComponent, TranslateModule],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })

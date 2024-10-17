@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reference',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './reference.component.html',
   styleUrl: './reference.component.scss',
 })
@@ -15,21 +16,21 @@ export class ReferenceComponent {
   references = [
     {
       quote:
-        'Lukas has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.',
+        'COLLEAGUE_H_JANISCH',
       author: 'H. Janisch',
       role: 'Team Partner',
     },
     {
       quote:
-        'I had the good fortune of working with Lukas on a project. He always stayed calm and made sure our team was set up for success.',
+        'COLLEAGUE_T_SCHULZ',
       author: 'T. Schulz',
-      role: 'Frontend Developer',
+      role: "FRONTEND_DEVELOPER",
     },
     {
       quote:
-        "Apart from Lukas's efficient way of working, he also showed a strong commitment to the team.",
-      author: 'M. Braun',
-      role: 'Backend Developer',
+        "COLLEAGUE_P_BRAUN",
+      author: 'P. Braun',
+      role: "BACKEND_DEVELOPER",
     },
   ];
 
@@ -45,5 +46,16 @@ export class ReferenceComponent {
 
   goToReference(index: number) {
     this.referenceIndex = index;
+  }
+
+  getPrevIndex(): number {
+    return (
+      (this.referenceIndex - 1 + this.references.length) %
+      this.references.length
+    );
+  }
+
+  getNextIndex(): number {
+    return (this.referenceIndex + 1) % this.references.length;
   }
 }

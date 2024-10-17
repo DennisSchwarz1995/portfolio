@@ -1,0 +1,61 @@
+@import "./../../styles.scss";
+
+.contactMe {
+  @include displayFlex($jc: space-between);
+  @include height(600px);
+  @include padding(40px 60px);
+  background: $primary_background_color_black;
+}
+
+.contactInfo {
+  @include displayFlex($jc: flex-start, $ai: flex-start, $fd: column);
+  @include gap(20px);
+  @include height(100%);
+  @include width(30%);
+}
+
+.contactHeader {
+  @include displayFlex($ai: flex-start, $fd: column);
+  > span {
+    @include fontStyle(
+      $font_size_24,
+      $font_weight_500,
+      $primary_color_green,
+      $primary_font_karla
+    );
+  }
+  > h2 {
+    @include fontStyle($font_size_64, $font_weight_700, $primary_color_green);
+    letter-spacing: -0.03em;
+  }
+}
+
+.contactSolution {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(16px);
+  > span {
+    @include fontStyle($font_size_24, $font_weight_700, $primary_color_green);
+  }
+  > p {
+    @include fontStyle(
+      $font_size_16,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+    > span {
+      @include fontStyle(
+        $font_size_16,
+        $font_weight_700,
+        $primary_color_green,
+        $primary_font_karla
+      );
+    }
+  }
+}
+
+.contactForm {
+  @include displayFlex($jc: inherit, $ai: center, $fd: column);
+  @include height(100%);
+  @include width(50%);
+}

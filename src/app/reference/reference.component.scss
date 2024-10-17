@@ -5,7 +5,7 @@
   @include gap(48px);
   background: $primary_background_color_black;
   text-align: center;
-  @include padding(40px);
+  @include padding(40px 60px);
   > h3 {
     @include fontStyle($font_size_32, $font_weight_700, $primary_color_green);
   }
@@ -15,21 +15,44 @@
   @include displayFlex();
   @include overflowHidden();
   @include gap(44px);
-  position: relative;
+  @include position(relative);
+  @include width();
+  @include height(300px);
 }
 
 .carouselItem {
+  @include height(100%);
+  @include width(50%);
   @include displayFlex($jc: space-between, $fd: column);
-  min-height: 280px;
   @include gap(44px);
+  @include position(absolute);
   @include padding(48px 40px);
   border-radius: 32px;
-  border: 1px solid $primary_color_green;
-  flex: 0 0 50%;
   transition: 300ms ease-in-out;
   background: $primary_background_color_green;
   opacity: 0.3;
   transform: scale(0.9);
+
+  &:hover {
+    @include cursorPointer();
+  }
+
+  &.active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    border: 1px solid $primary_color_green;
+  }
+
+  &.prev {
+    transform: translateX(-105%) scale(0.9);
+    background: linear-gradient(90deg, #1c1c1cb3 70%, #08463b 100%);
+  }
+
+  &.next {
+    transform: translateX(105%) scale(0.9);
+    background: linear-gradient(270deg, #1c1c1cb3 70%, #08463b 100%);
+  }
+
   > footer {
     @include displayFlex($ai: center);
     @include gap(12px);

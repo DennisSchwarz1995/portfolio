@@ -3,11 +3,12 @@ import { Project } from '../models/project.model';
 import { ProjectsComponent } from './projects/projects.component';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [ProjectsComponent, CommonModule, ProjectCardComponent],
+  imports: [ProjectsComponent, CommonModule, ProjectCardComponent, TranslateModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
 })
@@ -22,7 +23,7 @@ export class PortfolioComponent {
       id: 1,
       title: 'Join',
       description:
-        'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+        'PROJECT_JOIN',
       technologies: ['JavaScript', 'HTML', 'CSS'],
       preview: 'assets/img/join.png',
       github: 'https://github.com/DennisSchwarz1995',
@@ -31,7 +32,7 @@ export class PortfolioComponent {
       id: 2,
       title: 'Sharkie',
       description:
-        'Platformer game inspired by classic arcade games. Play as a chicken character and overcome various obstacles.',
+        'PROJECT_SHARKIE',
       technologies: ['JavaScript', 'HTML', 'CSS'],
       preview: 'assets/img/sharkie.png',
       github: 'https://github.com/DennisSchwarz1995',
@@ -40,7 +41,7 @@ export class PortfolioComponent {
       id: 3,
       title: 'DA Bubble',
       description:
-        'A project management tool built with Angular and Firebase, with features for tracking project progress and tasks.',
+        'PROJECT_DA_BUBBLE',
       technologies: ['Angular', 'Firebase', 'TypeScript'],
       preview: 'assets/img/da_bubble.png',
       github: 'https://github.com/DennisSchwarz1995',

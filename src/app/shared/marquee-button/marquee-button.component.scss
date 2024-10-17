@@ -8,6 +8,7 @@
   @include overflowHidden();
   @include width();
   white-space: nowrap;
+  transition: 225ms ease-in-out;
   > span {
     @include position(relative, $l: 0);
     display: inline-block;
@@ -19,13 +20,17 @@
   > span:nth-child(3) {
     @include position(absolute, $l: 100%);
   }
-  &:hover {
+  &:hover:not(:disabled) {
     @include cursorPointer();
     color: $primary_color_green;
     border: 1px solid $primary_color_green;
   }
-  &:hover > span {
+  &:hover:not(:disabled) > span {
     animation: buttonMarquee 2s linear infinite;
+  }
+  &:disabled {
+    border: 1px solid gray;
+    color: gray;
   }
 }
 

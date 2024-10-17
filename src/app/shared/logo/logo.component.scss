@@ -1,0 +1,42 @@
+@import "./../../../styles.scss";
+
+.logo {
+  @include displayFlex();
+  @include gap(8px);
+  font-family: $primary_font_karla;
+  &:hover .initials {
+    @include cursorPointer();
+    color: transparent;
+    -webkit-text-stroke: 1px $primary_color_green;
+  }
+  &:hover .name span {
+    @include cursorPointer();
+    color: transparent;
+    -webkit-text-stroke: 1px $primary_color_white;
+  }
+}
+
+.initials {
+  @include displayFlex();
+  @include fontStyle(
+    $fs: 48px,
+    $fw: $font_weight_700,
+    $c: $primary_color_green
+  );
+  letter-spacing: -0.12em;
+}
+
+.name {
+  line-height: 0.9;
+}
+
+.name span {
+  @include displayFlex($jc: flex-start);
+  @include fontStyle($font_size_20, $fw: $font_weight_700);
+}
+
+@media only screen and (max-width: $desktop) {
+  .name {
+    display: none;
+  }
+}

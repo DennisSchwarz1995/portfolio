@@ -1,0 +1,50 @@
+@import "./../../styles.scss";
+
+.legalNotice {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(20px);
+  @include padding(40px 60px);
+  background: linear-gradient(
+    55.22deg,
+    $primary_background_color_black 50%,
+    $primary_background_color_green 100%
+  );
+
+  h2 {
+    @include fontStyle(
+      $font_size_64,
+      $font_weight_700,
+      $primary_color_green,
+      $primary_font_fira
+    );
+    text-transform: capitalize;
+  }
+
+  h3 {
+    @include fontStyle(
+      $font_size_24,
+      $font_weight_700,
+      $primary_color_green,
+      $primary_font_fira
+    );
+    text-transform: capitalize;
+  }
+
+  h4 {
+    @include fontStyle(
+      $font_size_20,
+      $font_weight_700,
+      $primary_color_green,
+      $primary_font_fira
+    );
+  }
+
+  p {
+    @include fontStyle(
+      $font_size_18,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+  }
+}

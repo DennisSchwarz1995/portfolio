@@ -1,0 +1,77 @@
+<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <section class="inputs">
+    <div class="inputWrapper">
+      <label for="name">{{ 'CONTACT_ME_FORM_NAME' | translate }}</label>
+      <input
+        [(ngModel)]="contactData.name"
+        type="text"
+        id="name"
+        name="name"
+        placeholder="{{
+          getErrorPlaceholder('name', contactForm) ? (getErrorPlaceholder('name', contactForm) | translate) : 'CONTACT_ME_FORM_NAME_PLACEHOLDER' | translate
+        }}"
+        required
+      />
+    </div>
+
+    <div class="inputWrapper">
+      <label for="email">{{ 'CONTACT_ME_FORM_EMAIL' | translate }}</label>
+      <input
+        [(ngModel)]="contactData.email"
+        type="text"
+        id="email"
+        name="email"
+        placeholder="{{
+          getErrorPlaceholder('email', contactForm) ? (getErrorPlaceholder('email', contactForm) | translate) : 'CONTACT_ME_FORM_EMAIL_PLACEHOLDER' | translate
+        }}"
+        required
+        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+      />
+    </div>
+
+    <div class="inputWrapper">
+      <label for="message">{{ 'CONTACT_ME_FORM_MESSAGE' | translate }}</label>
+      <textarea
+        [(ngModel)]="contactData.message"
+        name="message"
+        id="message"
+        placeholder="{{
+          getErrorPlaceholder('message', contactForm) ? (getErrorPlaceholder('message', contactForm) | translate) : 'CONTACT_ME_FORM_MESSAGE_PLACEHOLDER' | translate
+        }}"
+        rows="1"
+        required
+      ></textarea>
+    </div>
+  </section>
+
+  <section class="checkboxSubmit">
+    <div class="checkboxWrapper">
+      <label class="checkboxContainer">
+        <input
+          type="checkbox"
+          name="checkbox"
+          [(ngModel)]="isCheckboxChecked"
+        />
+        <span class="checkmark"></span>
+      </label>
+      <div class="checkboxInfo">
+        <p>
+          {{ 'CONTACT_ME_FORM_PRIVACY_POLICY_INFO_1' | translate }} <a [routerLink]="['/privacy-policy']" target="_blank">{{ 'PRIVACY_POLICY' | translate }}</a>
+          {{ 'CONTACT_ME_FORM_PRIVACY_POLICY_INFO_2' | translate }}
+        </p>
+        <span
+          *ngIf="showCheckboxError && !isCheckboxChecked"
+          class="checkboxErrorMessage"
+        >
+        {{ 'CONTACT_ME_FORM_PRIVACY_POLICY' | translate }}</span
+        >
+      </div>
+    </div>
+
+    <app-marquee-button
+      marqueeText="{{ 'SEND_MESSAGE' | translate }}"
+      [disabled]="!contactForm.valid || !isCheckboxChecked"
+      (mouseenter)="markFieldsAsTouched(contactForm)"
+    ></app-marquee-button>
+  </section>
+</form>

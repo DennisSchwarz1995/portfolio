@@ -1,0 +1,59 @@
+@import "./../../styles.scss";
+
+.footer {
+  @include displayFlex($jc: space-between);
+  @include padding(40px 60px);
+  background: $primary_background_color_black;
+}
+
+.footerLogo {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(8px);
+  > span {
+    @include fontStyle(
+      $font_size_16,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+  }
+}
+
+.footerCopyright {
+  @include fontStyle($font_size_18, $font_weight_400, $primary_color_green);
+}
+
+.footerLinks {
+  @include displayFlex($ai: flex-start, $fd: column);
+  @include gap(8px);
+  > a {
+    @include position(relative);
+    transition: 225ms ease-in-out;
+    @include fontStyle(
+      $font_size_16,
+      $font_weight_400,
+      $primary_color_white,
+      $primary_font_karla
+    );
+    &:hover {
+      @include cursorPointer();
+      color: $primary_color_green;
+    }
+    &::after {
+      content: "";
+      @include position(absolute);
+      @include width(8px);
+      @include height(8px);
+      left: -12px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      border-radius: $border_radius_button_100;
+      transition: 225ms ease-in-out;
+    }
+
+    &:hover::after {
+      background-color: $primary_color_green;
+    }
+  }
+}

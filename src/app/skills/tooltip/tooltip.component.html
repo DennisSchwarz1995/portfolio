@@ -3,7 +3,7 @@
   *ngIf="unlearnedSkills.length > 0"
   [class.visible]="isVisible"
 >
-  <p>{{ tooltipText }}</p>
+  <p>{{ tooltipText | translate }}</p>
   <div class="unlearnedSkillsWrapper">
     <div class="unlearnedSkills" *ngFor="let skill of unlearnedSkills">
       <img [src]="skill.icon" [alt]="skill.name" />

@@ -2,6 +2,7 @@
 
 .hero {
   @include displayFlex($jc: space-between, $fd: column);
+  @include position(relative);
   @include height();
   @include width();
   @include padding(40px 60px 0 40px);
@@ -16,34 +17,51 @@
 header {
   @include displayFlex($jc: space-between);
   @include width();
-  > nav {
+  @include position(relative);
+  > .navbar {
     @include displayFlex();
     @include gap(24px);
+  }
+}
+
+.navbarLinks {
+  @include displayFlex();
+  @include gap(24px);
+
+  > a {
     @include fontStyle();
-    > a {
-      @include fontStyle();
-      @include position(relative);
-      text-decoration: none;
-      transition: 100ms ease-in-out;
-      &:hover {
-        color: $primary_color_green;
-      }
-      &::after {
-        content: "";
-        @include position(absolute);
-        @include width(8px);
-        @include height(8px);
-        bottom: -12px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: transparent;
-        border-radius: $border_radius_button_100;
-        transition: 100ms ease-in-out;
-      }
-      &:hover::after {
-        background-color: $primary_color_green;
-      }
+    @include position(relative);
+    text-decoration: none;
+    transition: 100ms ease-in-out;
+    &:hover {
+      color: $primary_color_green;
     }
+    &::after {
+      content: "";
+      @include position(absolute);
+      @include width(8px);
+      @include height(8px);
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      border-radius: $border_radius_button_100;
+      transition: 100ms ease-in-out;
+    }
+    &:hover::after {
+      background-color: $primary_color_green;
+    }
+    &:hover {
+      @include cursorPointer();
+    }
+  }
+}
+.menuIcon {
+  display: none;
+  &:hover {
+    @include cursorPointer();
+    filter: brightness(0) saturate(100%) invert(75%) sepia(12%) saturate(2393%)
+      hue-rotate(117deg) brightness(99%) contrast(73%);
   }
 }
 
@@ -105,41 +123,6 @@ header {
   transition: 100ms ease-out;
 }
 
-.logo {
-  @include displayFlex();
-  @include gap(8px);
-  font-family: $primary_font_karla;
-  &:hover .initials {
-    @include cursorPointer();
-    color: transparent;
-    -webkit-text-stroke: 1px $primary_color_green;
-  }
-  &:hover .name span {
-    @include cursorPointer();
-    color: transparent;
-    -webkit-text-stroke: 1px $primary_color_white;
-  }
-}
-
-.initials {
-  @include displayFlex();
-  @include fontStyle(
-    $fs: 48px,
-    $fw: $font_weight_700,
-    $c: $primary_color_green
-  );
-  letter-spacing: -0.12em;
-}
-
-.name {
-  line-height: 0.9;
-}
-
-.name span {
-  @include displayFlex($jc: flex-start);
-  @include fontStyle($font_size_20, $fw: $font_weight_700);
-}
-
 .title {
   @include displayFlex($jc: center, $fd: column);
   @include width();
@@ -149,7 +132,11 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   > h1 {
-    @include fontStyle($fs: $font_size_128, $fw: $font_weight_700, $ff: $primary_font_karla);
+    @include fontStyle(
+      $fs: $font_size_128,
+      $fw: $font_weight_700,
+      $ff: $primary_font_karla
+    );
   }
   > h3 {
     @include fontStyle($fs: $font_size_40, $c: $secondary_color_white);
@@ -229,7 +216,12 @@ header {
 }
 
 .mailAdress {
-  @include fontStyle($font_size_18, $font_weight_400, $primary_color_white, $primary_font_karla);
+  @include fontStyle(
+    $font_size_18,
+    $font_weight_400,
+    $primary_color_white,
+    $primary_font_karla
+  );
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
@@ -241,7 +233,7 @@ header {
 app-marquee {
   @include position(absolute);
   @include width(110vw);
-  bottom: 4.5vh;
+  bottom: 5vh;
   transform: rotate(-3deg);
 }
 
@@ -251,4 +243,39 @@ app-marquee {
   @include width(32px);
   border: 1px solid $primary_color_green;
   border-radius: 32px;
+}
+
+@media only screen and (max-width: $desktop) {
+  header {
+    > .navbar {
+      @include position(absolute, 100%, $r: 200%, $zi: 2);
+      @include padding(40px 77px);
+      border: 1px solid $primary_color_green;
+      border-radius: 30px;
+      // display: none;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      transition: 225ms ease-in-out;
+      background: linear-gradient(
+        55.22deg,
+        $primary_background_color_black 36.26%,
+        $primary_background_color_green 93.28%
+      );
+      &.open {
+        // display: flex;
+        right: 0;
+        transition: 225ms ease-in-out;
+      }
+      > {
+        .navbarLinks {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
+    > .menuIcon {
+      display: flex;
+      transition: 225ms ease-in-out;
+    }
+  }
 }

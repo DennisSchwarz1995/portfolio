@@ -1,8 +1,11 @@
 <main class="hero">
   <header>
-    <nav>
+    <nav class="navbar" [ngClass]="{'open': isMenuOpen}"
+    appClickedOutside
+    (clickedOutside)="closeMenu()"
+    >
       <div class="languageToggle">
-        <input type="checkbox" class="inputToggle" id="inputToggle" />
+        <input type="checkbox" class="inputToggle" id="inputToggle" (click)="toggleLanguage()"/>
         <label for="inputToggle" class="labelToggle">
           <span class="toggleText en">EN</span>
           <span class="toggleText de">DE</span>
@@ -10,28 +13,29 @@
         </label>
       </div>
 
-      <a href="">About me</a>
-      <a href="">Skills</a>
-      <a href="">Projects</a>
+      <div class="navbarLinks">
+        <a (click)="scrollToSection('about'); closeMenu()">{{ 'ABOUT_ME' | translate }}</a>
+        <a (click)="scrollToSection('skills'); closeMenu()">{{ 'SKILLS' | translate }}</a>
+        <a (click)="scrollToSection('portfolio'); closeMenu()">{{ 'PROJECTS' | translate }}</a>
+      </div>
     </nav>
-    <div class="logo">
-      <div class="initials">
-        <span class="letter">D</span>
-        <span class="letter">S</span>
-      </div>
-      <div class="name">
-        <span>Dennis</span>
-        <span>Schwarz</span>
-      </div>
-    </div>
+
+    <app-logo></app-logo>
+
+    <img
+      src="{{ isMenuOpen ? '../../assets/img/close_icon.png' : '../../assets/img/menu_icon.png' }}"
+      alt="menu_icon"
+      class="menuIcon"
+      (click)="toggleMenu()" 
+    />
   </header>
 
   <section class="title">
-    <h3>Frontend Developer</h3>
+    <h3>{{ 'TITLE' | translate }}</h3>
     <h1>Dennis Schwarz</h1>
     <div class="marqueeButtons">
-      <app-marquee-button marqueeText="Check my work"></app-marquee-button>
-      <app-marquee-button marqueeText="Contact me"></app-marquee-button>
+      <app-marquee-button marqueeText="{{ 'CHECK_MY_WORK' | translate }}" (click)="scrollToSection('portfolio')" ></app-marquee-button>
+      <app-marquee-button marqueeText="{{ 'CONTACT_ME' | translate }}" (click)="scrollToSection('contactMe')" ></app-marquee-button>
     </div>
   </section>
 
@@ -51,10 +55,14 @@
       <a class="mailAdress" href="mailto:schwarzdennis1995@gmail.com"
         >schwarzdennis1995&#64;gmail.com</a
       >
-      <a class="gitHubLink" href="">
+      <a
+        class="gitHubLink"
+        href="https://github.com/DennisSchwarz1995"
+        target="_blank"
+      >
         <img src="assets/img/github_icon.png" alt="github_icon" />
       </a>
-      <a class="linkedInLink" href="">
+      <a class="linkedInLink" href="" target="_blank">
         <img src="assets/img/linkedin_icon.png" alt="linkedin_icon" />
       </a>
       <div class="rightLateralLine"></div>

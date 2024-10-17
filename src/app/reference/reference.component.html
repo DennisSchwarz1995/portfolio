@@ -1,37 +1,44 @@
 <section class="reference">
-  <h3>What my colleagues say about me</h3>
-  <div class="carousel">
-    <div
-      *ngFor="let reference of references; let i = index"
-      class="carouselItem"
-      [ngClass]="{ active: i === referenceIndex }"
-    >
-      <blockquote>
-        <p>{{ reference.quote }}</p>
-      </blockquote>
-      <footer>
-        <span class="line"></span> {{ reference.author }},
-        {{ reference.role }}
-      </footer>
-    </div>
-  </div>
-
-  <div class="carouselControls">
-    <div class="carouselArrow" (click)="prev()">
-      <img src="../../assets/img/arrow_back_white.png" alt="arrow_forward" />
-    </div>
-
-    <div class="carouselIndicators">
+    <h3>{{ "COLLEAGUES_ABOUT_ME" | translate }}</h3>
+    
+    <div class="carousel">
       <div
-        class="indicator"
         *ngFor="let reference of references; let i = index"
-        [ngClass]="{ active: i === referenceIndex }"
+        class="carouselItem"
+        [ngClass]="{
+          active: i === referenceIndex,
+          prev: i === getPrevIndex(),
+          next: i === getNextIndex(),
+        }"
         (click)="goToReference(i)"
-      ></div>
+      >
+        <blockquote>
+          <p>{{ reference.quote | translate }}</p>
+        </blockquote>
+        <footer>
+          <span class="line"></span> {{ reference.author }},
+          {{ reference.role | translate }}
+        </footer>
+      </div>
     </div>
-
-    <div class="carouselArrow" (click)="next()">
-      <img src="../../assets/img/arrow_forward_white.png" alt="arrow_forward" />
+  
+    <div class="carouselControls">
+      <div class="carouselArrow" (click)="prev()">
+        <img src="../../assets/img/arrow_back_white.png" alt="arrow_back" />
+      </div>
+  
+      <div class="carouselIndicators">
+        <div
+          class="indicator"
+          *ngFor="let reference of references; let i = index"
+          [ngClass]="{ active: i === referenceIndex }"
+          (click)="goToReference(i)"
+        ></div>
+      </div>
+  
+      <div class="carouselArrow" (click)="next()">
+        <img src="../../assets/img/arrow_forward_white.png" alt="arrow_forward" />
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  
