@@ -3,10 +3,12 @@
 .skills {
   @include displayFlex($fd: row, $jc: space-between);
   @include padding(40px 60px);
-  background: radial-gradient(22.43% 43.85% at 1.22% 52.45%, #11332d 30%, #1C1C1C 100%);
+  background: radial-gradient(
+    22.43% 43.85% at 1.22% 52.45%,
+    #11332d 30%,
+    #1c1c1c 100%
+  );
 }
-
-
 
 .skillsWrapper {
   @include displayFlex($ai: flex-start, $fd: column);
@@ -22,7 +24,8 @@
   @include position(relative);
   max-width: 120px;
   text-align: center;
-  > img, span {
+  > img,
+  span {
     transition: 225ms ease-in-out;
   }
   > img:hover {
@@ -32,7 +35,7 @@
 
 .skillIcons {
   display: grid;
-  justify-content: center;
+  justify-items: center; 
   align-self: flex-end;
   grid-template-columns: repeat(4, 1fr);
   @include gap(72px);
@@ -79,4 +82,61 @@
 
 .hovered {
   color: $primary_color_green;
+}
+
+@media only screen and (max-width: 1200px) {
+  .skills {
+    flex-direction: column;
+    @include gap(60px);
+  }
+
+  .skillIcons {
+    align-self: inherit;
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .skills {
+    @include padding(24px 16px);
+  }
+
+  .highlightedSpan,
+  .coloredSpan,
+  .skillsWrapper > span {
+    font-size: $font_size_20;
+  }
+
+  .anotherSkill {
+    max-width: 100%;
+  }
+
+  .spanWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skillIcons {
+    @include width(100%);
+    @include gap(12px);
+  }
+}
+
+@media only screen and (max-width: $mobile-large) {
+  
+  .skillIcons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .skillIcon > img {
+    @include width(48px);
+    @include height(48px);
+  }
+
+}
+
+@media only screen and (max-width: $mobile) {
+  
+  .skillIcons {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

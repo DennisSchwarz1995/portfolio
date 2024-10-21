@@ -3,8 +3,7 @@
 .infoBox {
   max-width: 568px;
   @include width();
-  max-height: 568px;
-  height: auto;
+  @include height(auto);
   border-radius: 30px;
   @include displayFlex($ai: flex-start, $fd: column);
   @include gap(25px);
@@ -44,3 +43,19 @@
   letter-spacing: -0.03em;
 }
 
+@media only screen and (max-width: $mobile) {
+
+
+  .infoBox {
+    ::ng-deep table {
+      > tr {
+        gap: 8px;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .infoBoxTitle {
+    font-size: $font_size_32;
+  }
+}

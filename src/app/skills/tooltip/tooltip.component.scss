@@ -10,9 +10,9 @@
     $primary_color_green,
     $primary_font_karla
   );
+  @include width(220px);
   @include padding(12px 16px);
   @include gap(16px);
-  width: 220px;
   background: $primary_color_white;
   border-radius: 16px;
   transition: 300ms ease-in-out;
@@ -45,4 +45,10 @@
   @include width();
   @include gap(16px);
   flex-wrap: wrap;
+}
+
+@media only screen and (max-width: $mobile) {
+  .tooltip {
+    @include width(140px);
+  }
 }

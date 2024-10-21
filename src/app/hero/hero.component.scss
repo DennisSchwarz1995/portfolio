@@ -5,7 +5,7 @@
   @include position(relative);
   @include height();
   @include width();
-  @include padding(40px 60px 0 40px);
+  @include padding(40px 60px 0 60px);
   @include overflowHidden();
   background: linear-gradient(
     55.22deg,
@@ -215,7 +215,7 @@ header {
   border: 1px solid $primary_color_white;
 }
 
-.mailAdress {
+.mailAddress {
   @include fontStyle(
     $font_size_18,
     $font_weight_400,
@@ -225,6 +225,9 @@ header {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
+  > img {
+    display: none;
+  }
   &:hover {
     color: $primary_color_green;
   }
@@ -245,6 +248,14 @@ app-marquee {
   border-radius: 32px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .title {
+    > h1 {
+      font-size: 94px;
+    }
+  }
+}
+
 @media only screen and (max-width: $desktop) {
   header {
     > .navbar {
@@ -252,7 +263,6 @@ app-marquee {
       @include padding(40px 77px);
       border: 1px solid $primary_color_green;
       border-radius: 30px;
-      // display: none;
       flex-direction: column-reverse;
       align-items: flex-start;
       transition: 225ms ease-in-out;
@@ -262,7 +272,6 @@ app-marquee {
         $primary_background_color_green 93.28%
       );
       &.open {
-        // display: flex;
         right: 0;
         transition: 225ms ease-in-out;
       }
@@ -276,6 +285,64 @@ app-marquee {
     > .menuIcon {
       display: flex;
       transition: 225ms ease-in-out;
+    }
+  }
+
+  .mailAddress {
+    transform: rotate(0deg);
+    > span {
+      display: none;
+    }
+    > img {
+      display: block;
+    }
+    @include height(32px);
+    @include width(32px);
+    @include position(relative);
+    &:hover > img {
+      @include cursorPointer();
+      filter: brightness(0) invert(1);
+    }
+    &::after {
+      content: "";
+      @include position(absolute);
+      @include width(8px);
+      @include height(8px);
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border-radius: $border_radius_button_100;
+      transition: 100ms ease-in-out;
+    }
+
+    &:hover::after {
+      background-color: $primary_color_green;
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .hero {
+    @include padding(24px 16px 0 16px);
+  }
+  .title {
+    position: unset;
+    transform: translate(0, 0);
+    text-align: center;
+    > h1 {
+      font-size: 62px;
+    }
+    > h3 {
+      font-size: $font_size_24;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .title {
+    > .marqueeButtons {
+      flex-direction: column;
     }
   }
 }

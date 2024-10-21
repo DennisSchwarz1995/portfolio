@@ -61,3 +61,26 @@
 .visible {
   opacity: 1;
 }
+
+
+@media only screen and (max-width: $tablet) {
+  .portfolio {
+    @include padding(24px 16px);
+  }
+
+  .projectPreview {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $mobile-large) { 
+  .portfolioHeader {
+    > h2 {
+      font-size: $font_size_40;
+    }
+    > p {
+      font-size: $font_size_16;
+    }
+  }
+
+}

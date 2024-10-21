@@ -31,3 +31,11 @@
     transform: translateX(calc(-100% - 56px));
   }
 }
+
+@media only screen and (max-width: $mobile) {
+  .marqueeContent {
+    > span {
+      font-size: $font_size_24;
+    }
+  }
+}

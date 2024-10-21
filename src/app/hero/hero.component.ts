@@ -5,7 +5,8 @@ import { MarqueeButtonComponent } from '../shared/marquee-button/marquee-button.
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { ClickedOutsideDirective } from '../directives/clicked-outside.directive';
 import { TranslateModule } from '@ngx-translate/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../services/language.service';
+import { ScrollService } from '../services/scroll.service';
 
 @Component({
   selector: 'app-hero',
@@ -25,34 +26,16 @@ export class HeroComponent {
   isMenuOpen: boolean = false;
 
   constructor(
-    private viewportScroller: ViewportScroller,
-    private translate: TranslateService
-  ) {
-    this.translate.addLangs(['en', 'de']);
-    let savedLang = localStorage.getItem('lang');
-    let defaultLang = savedLang ? savedLang : 'en';
-    this.translate.setDefaultLang(defaultLang);
-    this.translate.use(defaultLang);
-
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'lang' && event.newValue) {
-        this.translate.use(event.newValue); 
-      }
-    });
-
-  }
-
-  
+    private scrollService: ScrollService,
+    private languageService: LanguageService
+  ) {}
 
   public scrollToSection(sectionId: string): void {
-    this.viewportScroller.scrollToAnchor(sectionId);
+    this.scrollService.scrollToSection(sectionId);
   }
-
-  toggleLanguage() {
-    const currentLang = this.translate.currentLang;
-    const newLang = currentLang === 'en' ? 'de' : 'en';
-    this.translate.use(newLang);
-    localStorage.setItem('lang', newLang);
+  
+  toggleLanguage(): void {
+    this.languageService.toggleLanguage();
   }
 
   toggleMenu(): void {

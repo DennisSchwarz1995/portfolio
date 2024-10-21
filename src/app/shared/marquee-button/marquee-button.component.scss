@@ -42,3 +42,10 @@
     transform: translateX(calc(-100% - 24px));
   }
 }
+
+@media only screen and (max-width: $mobile-large) {
+  .marqueeButtonContent {
+    @include padding(8px 24px);
+    font-size: $font_size_16;
+  }
+}

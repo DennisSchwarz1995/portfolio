@@ -10,6 +10,14 @@
     $primary_background_color_green 100%
   );
 
+  a {
+    color: $primary_color_white;
+    &:hover {
+      @include cursorPointer();
+      color: $primary_color_green;
+    }
+  }
+
   h2 {
     @include fontStyle(
       $font_size_64,

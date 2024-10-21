@@ -45,3 +45,25 @@
     );
   }
 }
+
+@media only screen and (max-width: $tablet) { 
+  .project {
+    flex-direction: column;
+    align-items: flex-start;
+    @include padding(40px 32px 40px 16px);
+  }
+
+  :host {
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: $mobile) { 
+  .technologiesList {
+    justify-content: flex-start;
+    > span {
+      font-size: $font_size_16;
+    }
+  }
+}

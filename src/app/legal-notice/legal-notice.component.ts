@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-legal-notice',
@@ -12,17 +12,5 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class LegalNoticeComponent {
 
-  constructor(private translate: TranslateService) {
-    const savedLang = localStorage.getItem('lang');
-    const defaultLang = savedLang ? savedLang : 'en';
-    this.translate.setDefaultLang(defaultLang);
-    this.translate.use(defaultLang);
-
-
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'lang' && event.newValue) {
-        this.translate.use(event.newValue);
-      }
-    });
-  }
+  constructor(private languageService: LanguageService) {}
 }
