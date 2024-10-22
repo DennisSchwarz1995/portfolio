@@ -1,17 +1,22 @@
 @import "./../../styles.scss";
 
 .contactMe {
-  @include displayFlex($jc: space-between);
-  @include height(600px);
+  @include displayFlex();
   @include padding(40px 60px);
   background: $primary_background_color_black;
+}
+
+.contactMeWrapper {
+  @include displayFlex($jc: space-between);
+  @include width();
+  max-width: 1920px;
 }
 
 .contactInfo {
   @include displayFlex($jc: flex-start, $ai: flex-start, $fd: column);
   @include gap(20px);
-  @include height(100%);
   @include width(30%);
+  align-self: flex-start;
 }
 
 .contactHeader {
@@ -58,4 +63,32 @@
   @include displayFlex($jc: inherit, $ai: center, $fd: column);
   @include height(100%);
   @include width(50%);
+}
+
+@media only screen and (max-width: $desktop) {
+  .contactMeWrapper {
+    flex-direction: column;
+    @include gap(40px);
+  }
+  .contactInfo,
+  .contactForm {
+    @include width();
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .contactMe {
+    @include padding(24px 16px);
+  }
+}
+
+@media only screen and (max-width: $mobile-large) {
+  .contactHeader {
+    > h2 {
+      font-size: $font_size_40;
+    }
+    > span {
+      font-size: $font_size_20;
+    }
+  }
 }

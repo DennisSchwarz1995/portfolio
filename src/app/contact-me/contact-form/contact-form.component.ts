@@ -26,7 +26,12 @@ export class ContactFormComponent {
     message: "",
   }
 
-  
+  adjustTextareaHeight(event: Event): void {
+    let textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto'; 
+    textarea.style.height = `${textarea.scrollHeight}px`; 
+  }
+
 
   post = {
     endPoint: 'https://deineDomain.de/sendMail.php', // Change with Domain.

@@ -6,6 +6,7 @@
   @include padding(12px 32px);
   @include width(100%);
   @include overflowHidden();
+  max-width: $desktop-full-hd;
   backdrop-filter: blur(5px);
   white-space: nowrap;
   user-select: none;

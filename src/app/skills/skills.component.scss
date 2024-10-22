@@ -1,7 +1,7 @@
 @import "./../../styles.scss";
 
 .skills {
-  @include displayFlex($fd: row, $jc: space-between);
+  @include displayFlex();
   @include padding(40px 60px);
   background: radial-gradient(
     22.43% 43.85% at 1.22% 52.45%,
@@ -11,6 +11,13 @@
 }
 
 .skillsWrapper {
+  @include displayFlex($ai: flex-start, $jc: space-between);
+  @include width();
+  @include gap(32px);
+  max-width: $desktop-full-hd;
+}
+
+.skillsInfoBox {
   @include displayFlex($ai: flex-start, $fd: column);
   @include gap(10px);
   > span {
@@ -35,7 +42,7 @@
 
 .skillIcons {
   display: grid;
-  justify-items: center; 
+  justify-items: center;
   align-self: flex-end;
   grid-template-columns: repeat(4, 1fr);
   @include gap(72px);
@@ -64,19 +71,20 @@
   );
 }
 
-.spanWrapper {
-  @include displayFlex($jc: space-between);
-  width: 100%;
+.anotherSkill {
+  @include displayFlex($jc: flex-start);
+  @include width();
+  @include gap(8px);
 }
 
-.anotherSkill {
+.spanWrapper {
   @include displayFlex($fd: column, $ai: flex-start);
   @include gap(16px);
   max-width: 65%;
   text-align: justify;
   > p {
     @include fontStyle($font_size_16);
-    width: 100%;
+    @include width();
   }
 }
 
@@ -84,9 +92,10 @@
   color: $primary_color_green;
 }
 
-@media only screen and (max-width: 1200px) {
-  .skills {
+@media only screen and (max-width: $desktop-large) {
+  .skillsWrapper {
     flex-direction: column;
+    align-items: center;
     @include gap(60px);
   }
 
@@ -106,13 +115,8 @@
     font-size: $font_size_20;
   }
 
-  .anotherSkill {
-    max-width: 100%;
-  }
-
   .spanWrapper {
-    flex-direction: column;
-    align-items: flex-start;
+    max-width: 100%;
   }
 
   .skillIcons {
@@ -122,7 +126,6 @@
 }
 
 @media only screen and (max-width: $mobile-large) {
-  
   .skillIcons {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -131,12 +134,15 @@
     @include width(48px);
     @include height(48px);
   }
-
 }
 
 @media only screen and (max-width: $mobile) {
-  
   .skillIcons {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .anotherSkill {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

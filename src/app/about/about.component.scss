@@ -1,12 +1,17 @@
 @import "./../../styles.scss";
 
 .about {
-  @include displayFlex($jc: space-between, $ai: flex-start, $fd: row);
+  @include displayFlex($jc: center, $ai: flex-start);
+  @include padding(40px 60px);
+  background: $primary_background_color_black;
+}
+
+.aboutMeWrapper {
+  @include displayFlex($jc: space-between, $ai: flex-start);
   @include width();
   @include gap(64px);
   min-height: 800px;
-  @include padding(40px 60px);
-  background: $primary_background_color_black;
+  max-width: $desktop-full-hd;
 }
 
 .aboutMePhoto {
@@ -39,8 +44,8 @@
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .about {
+@media only screen and (max-width: $desktop-large) {
+  .aboutMeWrapper {
     flex-direction: column;
     align-items: center;
   }

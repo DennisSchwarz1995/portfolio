@@ -38,6 +38,7 @@
         placeholder="{{
           getErrorPlaceholder('message', contactForm) ? (getErrorPlaceholder('message', contactForm) | translate) : 'CONTACT_ME_FORM_MESSAGE_PLACEHOLDER' | translate
         }}"
+        (input)="adjustTextareaHeight($event)"
         rows="1"
         required
       ></textarea>

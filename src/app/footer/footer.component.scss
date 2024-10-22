@@ -1,9 +1,15 @@
 @import "./../../styles.scss";
 
 .footer {
-  @include displayFlex($jc: space-between);
+  @include displayFlex();
   @include padding(40px 60px);
   background: $primary_background_color_black;
+}
+
+.footerWrapper {
+  @include displayFlex($ai: flex-end, $jc: space-between);
+  @include width();
+  max-width: $desktop-full-hd;
 }
 
 .footerLogo {
@@ -55,5 +61,15 @@
     &:hover::after {
       background-color: $primary_color_green;
     }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .footer {
+    @include padding(24px 16px);
+  }
+
+  .footerCopyright {
+    display: none;
   }
 }

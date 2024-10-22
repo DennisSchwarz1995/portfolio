@@ -1,46 +1,52 @@
 <section id="skills" class="skills">
   <div class="skillsWrapper">
-    <span>{{ 'TECHNOLOGIES' | translate }}</span>
-    <app-info-box title="SKILL_SET">
-      <p>
-        {{ 'JOURNEY' | translate }}
-      </p>
+    <div class="skillsInfoBox">
+      <span>{{ "TECHNOLOGIES" | translate }}</span>
+      <app-info-box title="SKILL_SET">
+        <p>
+          {{ "JOURNEY" | translate }}
+        </p>
 
-      <div class="anotherSkill">
-        <div class="spanWrapper">
-          <span class="highlightedSpan">{{ 'YOU_NEED' | translate }}</span>
-          <span class="coloredSpan">{{ 'ANOTHER_SKILL' | translate }}</span>
+        <div class="anotherSkill">
+          <span class="highlightedSpan">{{ "YOU_NEED" | translate }}</span>
+          <span class="coloredSpan">{{ "ANOTHER_SKILL" | translate }}</span>
         </div>
 
-        <p>
-          {{ 'SKILL_SET_CONTACT_ME' | translate }}
-        </p>
-      </div>
+        <div class="spanWrapper">
+          <p>
+            {{ "SKILL_SET_CONTACT_ME" | translate }}
+          </p>
+        </div>
 
-      <app-marquee-button marqueeText="{{ 'LETS_TALK' | translate }}" (click)="scrollToSection('contactMe')"></app-marquee-button>
-    </app-info-box>
-  </div>
+        <app-marquee-button
+          marqueeText="{{ 'LETS_TALK' | translate }}"
+          (click)="scrollToSection('contactMe')"
+        ></app-marquee-button>
+      </app-info-box>
+    </div>
 
-  <div class="skillIcons">
-    <div
-      class="skillIcon"
-      *ngFor="let skill of learnedSkills"
-
-    >
-      <img [src]="skill.icon" [alt]="skill.icon" 
-      (mouseenter)="showTooltipOnHover(skill)"
-      (mouseleave)="hideTooltipOnLeave()"/>
-      <span 
-      [class.hovered]="isTooltipVisible && skill.name === 'Growth Mindset'" 
-      class="skillName">{{ formatIconName(skill.name) }}</span>
-      <ng-container *ngIf="skill.name === 'Growth Mindset'">
-        <app-tooltip 
-          [tooltipText]="'SKILL_SET_TOOLTIP'"
-          [unlearnedSkills]="unlearnedSkills"
-          [isVisible]="isTooltipVisible"
+    <div class="skillIcons">
+      <div class="skillIcon" *ngFor="let skill of learnedSkills">
+        <img
+          [src]="skill.icon"
+          [alt]="skill.icon"
+          (mouseenter)="showTooltipOnHover(skill)"
+          (mouseleave)="hideTooltipOnLeave()"
+        />
+        <span
+          [class.hovered]="isTooltipVisible && skill.name === 'Growth Mindset'"
+          class="skillName"
+          >{{ formatIconName(skill.name) }}</span
         >
-        </app-tooltip>
-      </ng-container>
+        <ng-container *ngIf="skill.name === 'Growth Mindset'">
+          <app-tooltip
+            [tooltipText]="'SKILL_SET_TOOLTIP'"
+            [unlearnedSkills]="unlearnedSkills"
+            [isVisible]="isTooltipVisible"
+          >
+          </app-tooltip>
+        </ng-container>
+      </div>
     </div>
   </div>
 </section>

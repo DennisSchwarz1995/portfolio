@@ -1,12 +1,18 @@
 @import "./../../styles.scss";
 
 .portfolio {
-  @include displayFlex($fd: column, $ai: stretch);
+  @include displayFlex($fd: column, $ai: center);
   @include gap(40px);
   @include padding(40px 60px 80px 60px);
   background: $primary_background_color_black;
 }
 
+.portfolioWrapper {
+  @include displayFlex($fd: column, $ai: stretch);
+  @include width();
+  @include gap(40px);
+  max-width: $desktop-full-hd;
+}
 
 .portfolioHeader {
   @include displayFlex($ai: flex-start, $fd: column);
@@ -62,6 +68,11 @@
   opacity: 1;
 }
 
+@media only screen and (max-width: $desktop-large) {
+  .projectPreview {
+    left: 60%;
+  }
+}
 
 @media only screen and (max-width: $tablet) {
   .portfolio {
@@ -73,7 +84,7 @@
   }
 }
 
-@media only screen and (max-width: $mobile-large) { 
+@media only screen and (max-width: $mobile-large) {
   .portfolioHeader {
     > h2 {
       font-size: $font_size_40;
@@ -82,5 +93,4 @@
       font-size: $font_size_16;
     }
   }
-
 }

@@ -1,45 +1,49 @@
 <section class="about" id="about">
-  <div class="aboutMePhoto" [class.active]="isActive">
-    <img
-      src="assets/img/placeholder.png"
-      alt="aboutMeImage"
-      class="aboutMeImage"
-      (mouseenter)="triggerImageHover()"
-    />
-    <img
-      src="assets/img/background_hover.png"
-      alt="backgroundHover"
-      class="backgroundHover"
-    />
-  </div>
 
-  <div class="aboutMeInfoWrapper">
-    <span>{{ "WHO_I_AM" | translate }}</span>
-    <app-info-box title="ABOUT_ME" class="aboutMeInfo">
-      <p>
-        {{ "ABOUT_ME_INFO" | translate }}
-      </p>
+  <div class="aboutMeWrapper">
+    <div class="aboutMePhoto" [class.active]="isActive">
+      <img
+        src="assets/img/placeholder.png"
+        alt="aboutMeImage"
+        class="aboutMeImage"
+        (mouseenter)="triggerImageHover()"
+      />
+      <img
+        src="assets/img/background_hover.png"
+        alt="backgroundHover"
+        class="backgroundHover"
+      />
+    </div>
+  
+    <div class="aboutMeInfoWrapper">
+      <span>{{ "WHO_I_AM" | translate }}</span>
+      <app-info-box title="ABOUT_ME" class="aboutMeInfo">
+        <p>
+          {{ "ABOUT_ME_INFO" | translate }}
+        </p>
+  
+        <table class="infoTable">
+          <tr>
+            <td><img src="assets/img/location.png" alt="locationIcon" /></td>
+            <td>
+              {{ "LOCATION" | translate }}
+            </td>
+          </tr>
+          <tr>
+            <td><img src="assets/img/coqnition.png" alt="coqnitionIcon" /></td>
+            <td>
+              {{ "COQNITION" | translate }}
+            </td>
+          </tr>
+          <tr>
+            <td><img src="assets/img/quality.png" alt="qualityIcon" /></td>
+            <td>
+              {{ "QUALITY" | translate }}
+            </td>
+          </tr>
+        </table>
+      </app-info-box>
+    </div>
 
-      <table class="infoTable">
-        <tr>
-          <td><img src="assets/img/location.png" alt="locationIcon" /></td>
-          <td>
-            {{ "LOCATION" | translate }}
-          </td>
-        </tr>
-        <tr>
-          <td><img src="assets/img/coqnition.png" alt="coqnitionIcon" /></td>
-          <td>
-            {{ "COQNITION" | translate }}
-          </td>
-        </tr>
-        <tr>
-          <td><img src="assets/img/quality.png" alt="qualityIcon" /></td>
-          <td>
-            {{ "QUALITY" | translate }}
-          </td>
-        </tr>
-      </table>
-    </app-info-box>
   </div>
 </section>

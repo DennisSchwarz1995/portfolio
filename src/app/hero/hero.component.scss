@@ -18,6 +18,7 @@ header {
   @include displayFlex($jc: space-between);
   @include width();
   @include position(relative);
+  max-width: $desktop-full-hd;
   > .navbar {
     @include displayFlex();
     @include gap(24px);
@@ -127,10 +128,9 @@ header {
   @include displayFlex($jc: center, $fd: column);
   @include width();
   @include gap(12px);
-  @include position(absolute);
-  top: 50%;
-  left: 50%;
+  @include position(absolute, 50%, 50%);
   transform: translate(-50%, -50%);
+  max-width: $desktop-full-hd;
   > h1 {
     @include fontStyle(
       $fs: $font_size_128,
@@ -150,6 +150,7 @@ header {
 .heroFooter {
   @include width();
   @include displayFlex($jc: space-between, $ai: flex-end);
+  max-width: $desktop-full-hd;
 }
 
 .leftLateral,
@@ -238,6 +239,7 @@ app-marquee {
   @include width(110vw);
   bottom: 5vh;
   transform: rotate(-3deg);
+  max-width: $desktop-full-hd;
 }
 
 .downArrowBorder {

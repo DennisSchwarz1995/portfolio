@@ -37,6 +37,7 @@ form {
       $primary_color_white,
       $primary_font_karla
     );
+    transition: 225ms ease-in-out;
     background: $primary_background_color_black;
     outline: none;
     border: none;
@@ -102,6 +103,7 @@ textarea.ng-invalid.ng-touched::placeholder {
   @include position(relative);
   @include height(16px);
   @include width(16px);
+  min-width: 16px;
   > input {
     @include position(absolute);
     @include height(100%);
@@ -153,4 +155,53 @@ textarea.ng-invalid.ng-touched::placeholder {
     $primary_color_white,
     $primary_font_karla
   );
+}
+
+@media only screen and (max-width: $mobile-large) {
+  .inputWrapper {
+    > label {
+      font-size: $font_size_20;
+    }
+
+    > input[type="text"],
+    input[type="email"],
+    textarea {
+      font-size: $font_size_18;
+
+      &::placeholder {
+        font-size: $font_size_16;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .inputWrapper {
+    > label {
+      font-size: $font_size_18;
+    }
+
+    > input[type="text"],
+    input[type="email"],
+    textarea {
+      font-size: $font_size_16;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+  .checkboxSubmit {
+    .checkboxInfo {
+      > p {
+        font-size: $font_size_14;
+        > a {
+          font-size: $font_size_14;
+        }
+      }
+      > span {
+        font-size: 12px;
+      }
+    }
+  }
 }

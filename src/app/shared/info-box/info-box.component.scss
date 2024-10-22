@@ -44,14 +44,18 @@
 }
 
 @media only screen and (max-width: $mobile) {
-
-
   .infoBox {
     ::ng-deep table {
       > tr {
         gap: 8px;
         flex-direction: column;
+        > td {
+          font-size: $font_size_14;
+        }
       }
+    }
+    ::ng-deep p {
+      font-size: $font_size_16;
     }
   }
 

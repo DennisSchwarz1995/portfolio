@@ -1,60 +1,76 @@
-<main class="projectCardContainer" *ngIf="isVisible && project">
+<section class="projectCardContainer" *ngIf="isVisible && project">
   <div class="overlay" (click)="close()"></div>
   <section class="projectCard">
-    <section class="projectCardInfo">
-      <header class="cardHeader">
-        <h1>{{ project.id < 10 ? "0" + project.id : project.id }}</h1>
-        <h2>{{ project.title }}</h2>
-      </header>
-      <div class="projectCardDescription">
-        <h4>{{ "PROJECT_ABOUT" | translate }}</h4>
-        <p>{{ project.description | translate }}</p>
-        <div class="technologies">
-          <ng-container *ngFor="let tech of project.technologies">
-            <div class="technologyInfo">
-              <img [src]="formattedIconSrc(tech)" [alt]="tech" />
-              <span>{{ tech }}</span>
-            </div>
-          </ng-container>
-        </div>
-      </div>
-      <div class="projectLinks">
-        <button>
-          <a
-            *ngIf="project.github"
-            href="{{ project.github }}"
-            target="_blank"
-            >GitHub</a
-          >
-          <img
-            src="../../../assets/img/arrow_outward.png"
-            alt="arrow_outward"
-          />
-        </button>
-        <button>
-          <a
-            *ngIf="project.github"
-            href="{{ project.github }}"
-            target="_blank"
-            >Live Test</a
-          >
-          <img
-            src="../../../assets/img/arrow_outward.png"
-            alt="arrow_outward"
-          />
-        </button>
-      </div>
-    </section>
 
-    <section class="projectCardPreview">
-      <div class="closeButton" (click)="close()">
-        <img src="../../../assets/img/close_icon.png" alt="close_icon" />
-      </div>
-      <img [src]="project.preview" [alt]="project.title" />
-      <div class="nextProject" (click)="nextProject()">
-        <span>{{ "PROJECT_NEXT" | translate }}</span>
-        <img src="../../../assets/img/arrow_forward.png" alt="arrow_forward" />
-      </div>
-    </section>
+
+
+    <div class="closeButton" (click)="close()">
+      <img src="../../../assets/img/close_icon.png" alt="close_icon" />
+    </div>
+
+
+
+
+    <main class="projectCardContent">
+      <section class="projectCardInfo">
+        <header class="cardHeader">
+          <h1>{{ project.id < 10 ? "0" + project.id : project.id }}</h1>
+          <h2>{{ project.title }}</h2>
+        </header>
+        <div class="projectCardDescription">
+          <h4>{{ "PROJECT_ABOUT" | translate }}</h4>
+          <p>{{ project.description | translate }}</p>
+          <div class="technologies">
+            <ng-container *ngFor="let tech of project.technologies">
+              <div class="technologyInfo">
+                <img [src]="formattedIconSrc(tech)" [alt]="tech" />
+                <span>{{ tech }}</span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="projectLinks">
+          <button>
+            <a
+              *ngIf="project.github"
+              href="{{ project.github }}"
+              target="_blank"
+              >GitHub</a
+            >
+            <img
+              src="../../../assets/img/arrow_outward.png"
+              alt="arrow_outward"
+            />
+          </button>
+          <button>
+            <a
+              *ngIf="project.github"
+              href="{{ project.github }}"
+              target="_blank"
+              >Live Test</a
+            >
+            <img
+              src="../../../assets/img/arrow_outward.png"
+              alt="arrow_outward"
+            />
+          </button>
+        </div>
+      </section>
+
+      <section class="projectCardPreview">
+        <img [src]="project.preview" [alt]="project.title" />
+      </section>
+    </main>
+    
+
+
+
+
+
+    <div class="nextProject" (click)="nextProject()">
+      <span>{{ "PROJECT_NEXT" | translate }}</span>
+      <img src="../../../assets/img/arrow_forward.png" alt="arrow_forward" />
+    </div>
+
   </section>
-</main>
+</section>

@@ -1,11 +1,11 @@
-<main class="hero">
+<main id="hero" class="hero">
   <header>
     <nav class="navbar" [ngClass]="{'open': isMenuOpen}"
     appClickedOutside
     (clickedOutside)="closeMenu()"
     >
       <div class="languageToggle">
-        <input type="checkbox" class="inputToggle" id="inputToggle" (click)="toggleLanguage()"/>
+        <input type="checkbox" class="inputToggle" id="inputToggle" (click)="toggleLanguage()" [checked]="languageService.getCurrentLanguage() === 'de'"/>
         <label for="inputToggle" class="labelToggle">
           <span class="toggleText en">EN</span>
           <span class="toggleText de">DE</span>
@@ -20,7 +20,7 @@
       </div>
     </nav>
 
-    <app-logo></app-logo>
+    <app-logo (click)="scrollToSection('footer')"></app-logo>
 
     <img
       src="{{ isMenuOpen ? '../../assets/img/close_icon.png' : '../../assets/img/menu_icon.png' }}"

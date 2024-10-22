@@ -1,49 +1,51 @@
-<section class="portfolio"  id="portfolio">
-  <header class="portfolioHeader">
-    <span>Portfolio</span>
-    <h2>{{ "FEATURED_PROJECTS" | translate }}</h2>
-    <p>
-      {{ "EXPLORE" | translate }}
-    </p>
-  </header>
+<section class="portfolio" id="portfolio">
+  <div class="portfolioWrapper">
+    <header class="portfolioHeader">
+      <span>Portfolio</span>
+      <h2>{{ "FEATURED_PROJECTS" | translate }}</h2>
+      <p>
+        {{ "EXPLORE" | translate }}
+      </p>
+    </header>
 
-  <div class="portfolioContent">
-    <div class="projectList">
-      <ng-container *ngFor="let project of projects; let i = index">
-        <div class="projectWrapper">
-          <app-projects
-            [project]="project"
-            [isFirstElement]="i === 0"
-            (mouseenter)="showProjectPreview(i)"
-            (mouseleave)="hideProjectPreview()"
-            (click)="openProjectCard(project)">
-          >
+    <div class="portfolioContent">
+      <div class="projectList">
+        <ng-container *ngFor="let project of projects; let i = index">
+          <div class="projectWrapper">
+            <app-projects
+              [project]="project"
+              [isFirstElement]="i === 0"
+              (mouseenter)="showProjectPreview(i)"
+              (mouseleave)="hideProjectPreview()"
+              (click)="openProjectCard(project)"
             >
-          </app-projects>
+              > >
+            </app-projects>
 
-          <div
-            class="projectPreview"
-            [class.visible]="activePreviewIndex === i"
-          >
-            <img [src]="project.preview" [alt]="project.title" />
-            <img
-              src="assets/img/background_hover.png"
-              alt="backgroundHover"
-              class="backgroundHover"
-            />
+            <div
+              class="projectPreview"
+              [class.visible]="activePreviewIndex === i"
+            >
+              <img [src]="project.preview" [alt]="project.title" />
+              <img
+                src="assets/img/background_hover.png"
+                alt="backgroundHover"
+                class="backgroundHover"
+              />
+            </div>
           </div>
-        </div>
-      </ng-container>
+        </ng-container>
+      </div>
     </div>
   </div>
 </section>
 
-<app-project-card 
-*ngIf="isProjectCardVisible"
-[project]="selectedProject"
-[projects]="projects"
-[isVisible]="isProjectCardVisible"
-(closeCard)="closeProjectCard()"
-(nextProjectEvent)="showNextProject()" 
+<app-project-card
+  *ngIf="isProjectCardVisible"
+  [project]="selectedProject"
+  [projects]="projects"
+  [isVisible]="isProjectCardVisible"
+  (closeCard)="closeProjectCard()"
+  (nextProjectEvent)="showNextProject()"
 >
 </app-project-card>

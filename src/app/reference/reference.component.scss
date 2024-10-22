@@ -1,11 +1,18 @@
 @import "./../../styles.scss";
 
 .reference {
-  @include displayFlex($fd: column);
-  @include gap(48px);
+  @include displayFlex();
   background: $primary_background_color_black;
   text-align: center;
   @include padding(40px 60px);
+}
+
+.referenceWrapper {
+  @include displayFlex($fd: column);
+  @include width();
+  @include gap(48px);
+  max-width: $desktop-full-hd;
+  text-align: center;
   > h3 {
     @include fontStyle($font_size_32, $font_weight_700, $primary_color_green);
   }
@@ -125,4 +132,59 @@ blockquote {
 
 .indicator.active {
   background-color: $primary_color_green;
+}
+
+@media only screen and (max-width: $desktop) {
+  .carouselItem {
+    &.active {
+      @include width(80%);
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      border: 1px solid $primary_color_green;
+    }
+
+    &.prev {
+      transform: translateX(-135%) scale(0.9);
+    }
+
+    &.next {
+      transform: translateX(135%) scale(0.9);
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .reference {
+    @include padding(24px 16px 40px 16px);
+    > h3 {
+      font-size: $font_size_24;
+    }
+  }
+
+  .carouselItem {
+    @include padding(24px 20px);
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  .carouselItem {
+    > blockquote > p {
+      font-size: $font_size_18;
+    }
+    &.active {
+      @include width(100%);
+    }
+
+    &.prev {
+      transform: translateX(-150%) scale(0.9);
+    }
+
+    &.next {
+      transform: translateX(150%) scale(0.9);
+    }
+  }
+
+  .referenceSpan {
+    font-size: $font_size_16;
+  }
 }

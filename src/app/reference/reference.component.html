@@ -1,6 +1,7 @@
 <section class="reference">
+  <div class="referenceWrapper">
     <h3>{{ "COLLEAGUES_ABOUT_ME" | translate }}</h3>
-    
+
     <div class="carousel">
       <div
         *ngFor="let reference of references; let i = index"
@@ -16,17 +17,19 @@
           <p>{{ reference.quote | translate }}</p>
         </blockquote>
         <footer>
-          <span class="line"></span> {{ reference.author }},
-          {{ reference.role | translate }}
+          <span class="line"></span>
+          <span class="referenceSpan">
+            {{ reference.author }}, {{ reference.role | translate }}
+          </span>
         </footer>
       </div>
     </div>
-  
+
     <div class="carouselControls">
       <div class="carouselArrow" (click)="prev()">
         <img src="../../assets/img/arrow_back_white.png" alt="arrow_back" />
       </div>
-  
+
       <div class="carouselIndicators">
         <div
           class="indicator"
@@ -35,10 +38,13 @@
           (click)="goToReference(i)"
         ></div>
       </div>
-  
+
       <div class="carouselArrow" (click)="next()">
-        <img src="../../assets/img/arrow_forward_white.png" alt="arrow_forward" />
+        <img
+          src="../../assets/img/arrow_forward_white.png"
+          alt="arrow_forward"
+        />
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

@@ -27,7 +27,7 @@ export class HeroComponent {
 
   constructor(
     private scrollService: ScrollService,
-    private languageService: LanguageService
+    public languageService: LanguageService
   ) {}
 
   public scrollToSection(sectionId: string): void {
